@@ -1,0 +1,23 @@
+.btn {
+  white-space: normal !important;
+  word-wrap: break-word;
+} 
+
+#greeting {
+  font-size: 1.0em;
+}
+
+#newsletter-btn {
+  display: block;
+  float: none;  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#news-label {
+  display: inline-block;
+  text-align: left;
+  padding-left: 0.1em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
