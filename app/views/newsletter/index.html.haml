@@ -1,0 +1,9 @@
+%h1 
+  Newsletter  
+
+- Newsletter.all.each do |n| 
+  = "Name: #{n.name}"
+  = "File: #{n.file_path}"
+  = "date: #{n.date}"
+  %hr
+  
