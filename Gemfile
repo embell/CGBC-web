@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', ">= 4.0.0", "< 5.0.0"
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -24,11 +24,12 @@ gem 'jbuilder'
 
 gem 'haml'
 
-group :development, :production, :test do
+group :development, :test do
+  gem 'byebug'
   gem 'sqlite3'
 end
 
-group :staging do
+group :production, :staging do
   gem 'pg'
 end
 
@@ -40,6 +41,3 @@ end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
