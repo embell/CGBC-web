@@ -12,6 +12,7 @@ gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
+gem 'coffee-script-source', '1.8.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
