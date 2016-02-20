@@ -1,9 +1,29 @@
 %h1 
   Newsletter  
 
+%hr
 - Newsletter.all.each do |n| 
   = "Name: #{n.name}"
   = "File: #{n.file_path}"
   = "date: #{n.date}"
   %hr
-  
+
+.panel-group#accordion
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseOne'}
+          What is html?
+    .panel-collapse.collapse.in#collapseOne
+      .panel-body
+        %p
+          Html is like this markup language thing.
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseTwo'}
+          What is css?
+    .panel-collapse.collapse.in#collapseTwo
+      .panel-body
+        %p
+          Cascading stylesheets
