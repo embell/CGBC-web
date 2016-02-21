@@ -3,8 +3,15 @@
   word-wrap: break-word;
 } 
 
+.item {
+  img {
+    width: 100%;
+  }
+
+}
+
 #greeting {
-  font-size: 1.0em;
+  font-size: 1.2em;
 }
 
 #newsletter-btn {

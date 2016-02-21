@@ -11,17 +11,14 @@
       Current Newsletter
 .col-md-8
   .center
-    -#= image_tag "church.png", class: "image-responsive center-block"
     .carousel.slide#myCarousel{:data => {:ride => 'carousel'}}
       %ol.carousel-indicators
         %li.active{:data => {:target => '#myCarousel', :slide_to => '0'}}
           %li.active{:data => {:target => '#myCarousel', :slide_to => '1'}}
       .carousel-inner
         .item.active
-          -#%img{:src => 'church.png', :alt => 'CGBC'}
           = image_tag "church.png", class: "image-responsive center-block"
         .item
-          -#%img{:src => 'church2.png', :alt => 'CGBC2'}
           = image_tag "church2.png", class: "image-responsive center-block"
       %a.carousel-control.left{:href => '#myCarousel', :data => {:slide => 'prev'}}
         %span.glyphicon.glyphicon-chevron-left

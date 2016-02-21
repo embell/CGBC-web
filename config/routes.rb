@@ -6,6 +6,8 @@ CGBC::Application.routes.draw do
 
   get "history", to: "static_pages#history"
 
+  get "admin", to: "static_pages#admin"
+
   get "newsletter", to: "newsletters#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
