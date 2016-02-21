@@ -1,5 +1,5 @@
 !!! 5
-%html
+%html.full-bg
   %head 
     %title CGBC
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
@@ -14,7 +14,7 @@
 
     = favicon_link_tag asset_path "favicon.ico"
 
-  %body  
+  %body
     %header.navbar.navbar-static-top.navbar-inverse{:role => "banner"}
       .container
         = link_to :root, class: "navbar-brand img-brand" do
