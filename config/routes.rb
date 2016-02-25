@@ -1,12 +1,12 @@
 CGBC::Application.routes.draw do
-  root "static_pages#home"
+  root "pages#home"
 
-  get "home", to: "static_pages#home"
-  get "index", to: "static_pages#home"
+  get "home", to: "pages#home"
+  get "index", to: "pages#home"
 
-  get "history", to: "static_pages#history"
+  get "history", to: "pages#history"
 
-  get "admin", to: "static_pages#admin"
+  get "admin", to: "pages#admin"
 
   get "newsletter", to: "newsletters#index"
   # The priority is based upon order of creation: first created -> highest priority.
