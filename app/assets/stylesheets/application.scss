@@ -33,3 +33,45 @@ body {
 h2 { 
   margin-top: 45px;
 }
+
+.section {
+  margin-bottom: 25px;
+  padding: 5px;
+  border-radius: 2px;
+
+  opacity: 0.9;
+  background-color: #111111;
+  color: #EEEEEE;
+
+  h1 {
+    margin-left: -15px;
+    margin-top: -15px;
+
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    wdith: max-content;
+    max-width: 100%;
+
+    padding: 5px;
+
+    color: #000000;
+    background-color: #FFFFFF;
+
+    border-radius: 5px;
+  }
+
+  .btn {
+    margin: 15px;
+  }
+
+  p {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  img {
+    padding: 5px;
+  }
+}

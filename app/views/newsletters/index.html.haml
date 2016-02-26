@@ -1,76 +1,47 @@
-%h1 
-  Newsletter  
+.section
+  %h1 
+    Newsletter  
 
-%hr
-- Newsletter.all.each do |n| 
-  = "Name: #{n.name}"
-  = "File: #{n.file_path}"
-  = "date: #{n.date}"
-  %hr
+  - Newsletter.all.each do |n| 
+    = "Name: #{n.name}"
+    = "File: #{n.file_path}"
+    = "date: #{n.date}"
+    %hr
 
-.panel-group#accordion
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseOne'}
-          2016
-    .panel-collapse.collapse.in#collapseOne
-      .panel-body
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              January
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              February
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseTwo'}
-          2015
-    .panel-collapse.collapse#collapseTwo
-      .panel-body
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              January
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              February
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              March
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              April
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              May
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              June
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              July
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseThree'}
-          2014
-    .panel-collapse.collapse#collapseThree
-      .panel-body
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              October
-        .col-md-3
-          .panel.panel-default
-            .panel-body
-              November
+  .panel-group#accordion
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseOne'}
+            2016
+      .panel-collapse.collapse.in#collapseOne
+        .panel-body
+          - ["January", "February", "December"].each do |month|
+            .col-md-3
+              .panel.panel-default
+                .panel-body
+                  = month
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseTwo'}
+            2015
+      .panel-collapse.collapse#collapseTwo
+        .panel-body
+          - ["January", "February", "March", "April", "May", "June", "July"].each do |month|
+            .col-md-3
+              .panel.panel-default
+                .panel-body
+                  = month
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseThree'}
+            2014
+      .panel-collapse.collapse#collapseThree
+        .panel-body
+          - ["January", "February", "December"].each do |month|
+            .col-md-3
+              .panel.panel-default
+                .panel-body
+                  = month
