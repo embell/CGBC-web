@@ -75,3 +75,16 @@ h2 {
     padding: 5px;
   }
 }
+
+.icon {
+  width: 25px;
+  -webkit-filter: saturate(10%);
+  filter: saturate(10%);
+
+  &:hover {
+    -webkit-filter: saturate(100%);
+    filter: saturate(100%);
+    -webkit-filter: drop-shadow(2px 1px 1px rgba(2,2,2,0.7));
+    filter: drop-shadow(2px 1px 1px rgba(2,2,2,0.7));
+  }
+}
