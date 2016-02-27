@@ -5,12 +5,15 @@
         .carousel.slide#myCarousel{:data => {:ride => 'carousel'}}
           %ol.carousel-indicators
             %li.active{:data => {:target => '#myCarousel', :slide_to => '0'}}
-            %li.active{:data => {:target => '#myCarousel', :slide_to => '1'}}
+            %li{:data => {:target => '#myCarousel', :slide_to => '1'}}
+            %li{:data => {:target => '#myCarousel', :slide_to => '2'}}
           .carousel-inner
             .item.active
-              = image_tag "church.jpg", class: "image-responsive center-block"
+              = image_tag "bible.jpg", class: "image-responsive center-block"
             .item
               = image_tag "church2.jpg", class: "image-responsive center-block"
+            .item
+              = image_tag "church.jpg", class: "image-responsive center-block"
   .col-md-4.col-xs-12
     .section
       %h1
