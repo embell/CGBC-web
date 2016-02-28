@@ -26,6 +26,7 @@ gem 'jbuilder'
 gem 'haml'
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'byebug'
   gem 'sqlite3'
 end
