@@ -17,13 +17,11 @@
 @import "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css";
 
 @import 'home';
+@import 'mixins';
 
 .full-bg {
   background: url(sky.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  @include background-size(cover);
 }
 
 body {
@@ -47,9 +45,7 @@ h2 {
     margin-left: -15px;
     margin-top: -15px;
 
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    wdith: max-content;
+    @include width-max-content;
     max-width: 100%;
 
     padding: 5px;
@@ -78,13 +74,10 @@ h2 {
 
 .icon {
   width: 25px;
-  -webkit-filter: saturate(10%);
-  filter: saturate(10%);
+  @include filter(saturate(10%));
 
   &:hover {
-    -webkit-filter: saturate(100%);
-    filter: saturate(100%);
-    -webkit-filter: drop-shadow(2px 1px 1px rgba(2,2,2,0.7));
-    filter: drop-shadow(2px 1px 1px rgba(2,2,2,0.7));
+    @include filter(saturate(100%));
+    @include filter(drop-shadow(2px 1px 1px rgba(2,2,2,0.7)));
   }
 }
