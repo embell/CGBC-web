@@ -4,10 +4,10 @@
   background-position: center;
   background-attachment: fixed; 
 
-  -webkit-background-size: $size;
-  -moz-background-size: $size;
-  -o-background-size: $size;
-  background-size: $size;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @mixin width-max-content {
