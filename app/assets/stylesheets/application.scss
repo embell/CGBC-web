@@ -20,7 +20,11 @@
 @import 'mixins';
 
 .full-bg {
-  background: url(sky.jpg) no-repeat center center fixed;
+  background-image: image-url("sky.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+
   @include background-size(cover);
 }
 
