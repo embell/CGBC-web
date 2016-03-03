@@ -1,4 +1,9 @@
-@mixin background-size($size) {
+@mixin full-image-bg($image-path) {
+  background-image: image-url($image-path);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; 
+
   -webkit-background-size: $size;
   -moz-background-size: $size;
   -o-background-size: $size;
