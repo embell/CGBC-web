@@ -8,5 +8,6 @@ AllCops:
   Include:
     - Rakefile
   Exclude:
-    - db/schema.rb
+    - config/initializers/secret_token.rb
     - config.ru
+    - db/schema.rb

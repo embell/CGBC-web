@@ -1,3 +1,4 @@
+# Create a Newsletters table
 class CreateNewsletters < ActiveRecord::Migration
   def change
     create_table :newsletters do |t|
