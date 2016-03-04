@@ -1,0 +1,12 @@
+Metrics/LineLength:
+  Max: 100
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+AllCops:
+  Include:
+    - Rakefile
+  Exclude:
+    - db/schema.rb
+    - config.ru
