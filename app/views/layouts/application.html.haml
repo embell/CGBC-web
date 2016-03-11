@@ -32,6 +32,11 @@
 
     .container
       .center.clearfix
+        - flash.each do |key, value|
+          .alert.alert-dismissable{:class => 'alert-' + key.to_s}
+            = value
+            %button.close{:type => 'button', :data => {:dismiss => 'alert'}}
+              &times; 
         = yield
 
     %footer

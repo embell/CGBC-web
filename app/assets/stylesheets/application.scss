@@ -81,3 +81,7 @@ h2 {
     @include filter(drop-shadow(2px 1px 1px rgba(2,2,2,0.7)));
   }
 }
+
+.alert {
+  border: 1px solid black;
+}

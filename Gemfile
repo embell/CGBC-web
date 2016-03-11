@@ -25,6 +25,8 @@ gem 'jbuilder'
 
 gem 'haml'
 
+gem 'devise', '~> 3.5'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
