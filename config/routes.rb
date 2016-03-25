@@ -7,7 +7,7 @@ CGBC::Application.routes.draw do
 
   get 'history', to: 'pages#history'
 
-  get 'admin', to: 'pages#admin'
+  get 'admin', to: 'admin#index'
 
   get 'newsletter', to: 'newsletters#index'
   # The priority is based upon order of creation: first created -> highest priority.

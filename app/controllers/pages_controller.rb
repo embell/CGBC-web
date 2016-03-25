@@ -5,7 +5,4 @@ class PagesController < ApplicationController
 
   def history
   end
-
-  def admin
-  end
 end
