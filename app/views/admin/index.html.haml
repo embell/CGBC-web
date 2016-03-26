@@ -1,3 +1,18 @@
-.section
-  %h1
-    Welcome to the admin page
+.pull-left
+  %h1 Admin Page
+- if user_signed_in?
+  .pull-right
+    .section
+      = link_to('Logout', destroy_user_session_path, :method => :delete)
+.clearfix
+%hr
+- if @newsletter
+  = render 'newsletters/new'
+- if @sermons
+  .section
+    %h1 Sermons
+    Hello world
+- if @newsletter
+  .section
+    %h1 Test
+    Hello test
