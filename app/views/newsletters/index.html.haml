@@ -2,10 +2,13 @@
   %h1 
     Newsletter  
 
-  - Newsletter.all.each do |n| 
-    = "Name: #{n.name}"
-    = "File: #{n.file_path}"
-    = "date: #{n.date}"
+  - Newsletter.all.reverse.each do |n| 
+    %div
+      = "Name: #{n.name}"
+    %div
+      = "File: #{n.file_path}"
+    %div
+      = "Date: #{n.date}"
     %hr
 
   .panel-group#accordion
