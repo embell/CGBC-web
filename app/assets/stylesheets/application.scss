@@ -69,6 +69,18 @@ h2 {
   img {
     padding: 5px;
   }
+  
+  input, select {
+    color: #000000;
+    margin: 10px;
+    margin-top: 2px;
+    max-width: 90%;
+  }
+
+  select {
+    width: 250px;
+    float: left;
+  }
 }
 
 .icon {

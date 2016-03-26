@@ -6,7 +6,7 @@
       = link_to('Logout', destroy_user_session_path, :method => :delete)
 .clearfix
 %hr
-- if @newsletter
+- if @newsletter_permission
   = render 'newsletters/new'
 - if @sermons
   .section
