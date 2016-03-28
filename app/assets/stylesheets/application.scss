@@ -20,7 +20,7 @@
 @import 'mixins';
 
 .full-bg {
-  @include full-image-bg("sky.jpg");
+  @include full-image-bg("sky2.jpg");
 }
 
 body {
@@ -86,7 +86,7 @@ h2 {
 .icon {
   width: 24px;
   height: 24px;
-  @include filter(saturate(10%));
+  @include filter(saturate(10%) invert(100%));
 
   &:hover {
     @include filter(saturate(100%));
@@ -96,4 +96,8 @@ h2 {
 
 .alert {
   border: 1px solid black;
+}
+
+footer {
+  color: #FFFFFF;
 }
