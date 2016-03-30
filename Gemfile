@@ -27,10 +27,11 @@ gem 'haml'
 
 gem 'devise', '~> 3.5'
 
+gem 'sqlite3'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
-  gem 'sqlite3'
 end
 
 group :production, :staging do
