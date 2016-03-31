@@ -27,16 +27,12 @@ gem 'haml'
 
 gem 'devise', '~> 3.5'
 
-gem 'sqlite3'
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
 end
 
-group :production, :staging do
-  gem 'pg'
-end
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
