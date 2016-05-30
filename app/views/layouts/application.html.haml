@@ -21,7 +21,8 @@
           = image_tag "logo.png", class: "img-responsive brand"
         %nav
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Admin",       'admin'
+            - if user_signed_in?
+              %li= link_to "Admin",       'admin'
             %li= link_to "Sermons",     '#'
             %li= link_to "Newsletter",  'newsletter'
             %li= link_to "History",     'history'
