@@ -3,7 +3,5 @@ class AdminController < ApplicationController
 
   def index
     @user = current_user
-    @newsletter_permission = true
-    @sermons = true
   end
 end
