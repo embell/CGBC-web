@@ -37,7 +37,7 @@
             = value
             %button.close{:type => 'button', :data => {:dismiss => 'alert'}}
               &times; 
-        = yield
+        = content_for?(:content) ? yield(:content) : yield
 
     %footer
       .container
