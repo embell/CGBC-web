@@ -54,6 +54,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
 gem 'devise', '~> 3.5'
+gem 'carrierwave'
 
 gem 'tzinfo-data'
 
