@@ -4,7 +4,7 @@ class CreateNewsletters < ActiveRecord::Migration
     create_table :newsletters do |t|
       t.string :name
       t.date :date
-      t.string :file
+      t.string :document
 
       t.timestamps
     end

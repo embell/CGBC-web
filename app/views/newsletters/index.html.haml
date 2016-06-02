@@ -7,6 +7,8 @@
       = "Name: #{n.name}"
     %div
       = "Date: #{n.date}"
+    %div
+      = link_to "File", n.document.url unless n.document.file.nil?
     %hr
 
   .panel-group#accordion

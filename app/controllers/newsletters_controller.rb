@@ -18,6 +18,6 @@ class NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:name, :date, :file) 
+    params.require(:newsletter).permit(:name, :date, :document) 
   end
 end

@@ -1,5 +1,5 @@
 class Newsletter < ActiveRecord::Base
-  mount_uploader :file, NewsletterUploader
+  mount_uploader :document, NewsletterUploader
 
   def month
 
