@@ -1,4 +1,6 @@
 class Newsletter < ActiveRecord::Base
+  mount_uploader :file, NewsletterUploader
+
   def month
 
   end
