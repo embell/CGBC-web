@@ -14,6 +14,12 @@ class NewslettersController < ApplicationController
 
     if @newsletter.save
       redirect_to '/newsletter'
+    else
+      flash[:error] = "Newsletter entry invalid: "
+      @newsletter.errors.full_messages.each do |err|
+        flash[:error] += err
+      end
+      redirect_to '/admin'
     end
   end
 
