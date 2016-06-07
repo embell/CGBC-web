@@ -3,6 +3,15 @@ class NewslettersController < ApplicationController
   before_filter :authenticate_user!, only: :create
 
   def index
+    @news_by_year = {}
+    Newsletter.find_each do |n|
+      if @news_by_year.keys.include? n.year
+        @news_by_year[n.year].push n
+      else
+        @news_by_year.store(n.year, [n])
+      end
+    end
+    @news_by_year = @news_by_year.sort_by {|year, newsletters| year}.reverse
   end
 
   def create

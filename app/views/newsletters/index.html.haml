@@ -6,15 +6,17 @@
     This newsletter is a montly overview of the things going on at church. 
     Check it out!
 
-.section
-  - Newsletter.order(date: :desc).each do |n| 
-    %div
-      = "Name: #{n.name}"
-    %div
+- @news_by_year.each do |year, newsletters| 
+  = render partial: 'show_by_year', locals: {year: year, newsletters: newsletters}
+-#.section
+  -#- Newsletter.order(date: :desc).each do |n| 
+    -#%div
+      -#= "Name: #{n.name}"
+    -#%div
       = "Date: #{n.date}"
-    %div
-      = link_to "File", n.document.url unless n.document.file.nil?
-    %hr
+    -#%div
+      -#= link_to "File", n.document.url unless n.document.file.nil?
+    -#%hr
 
 .section
   .panel-group#accordion

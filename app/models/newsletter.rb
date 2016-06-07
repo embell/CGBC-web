@@ -6,14 +6,10 @@ class Newsletter < ActiveRecord::Base
   mount_uploader :document, NewsletterUploader
 
   def month
-
+    date.month
   end
 
   def year
-
-  end
-
-  def file
-
+    date.year
   end
 end
