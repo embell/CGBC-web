@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'newsletter', to: 'newsletters#index'
   resources :newsletters
 
+  get 'sermons', to: 'sermons#index'
+  resources :sermons
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

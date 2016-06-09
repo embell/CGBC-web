@@ -9,9 +9,7 @@
 - if @user.permissions.include?(:newsletters)
   = render 'newsletters/new'
 - if @user.permissions.include?(:sermons)
-  .section
-    %h1 Sermons
-    Hello world
+  = render 'sermons/new'
 - if @user.permissions.include?(:events)
   .section
     %h1 Events
