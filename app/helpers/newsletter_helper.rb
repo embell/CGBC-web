@@ -5,6 +5,6 @@ module NewsletterHelper
     month = date.month
     month = ((1..12).cover? month) ? Date::MONTHNAMES[month] : month
 
-    "#{month} #{date.year}"
+    "#{month[0..2]} #{date.year}"
   end
 end
