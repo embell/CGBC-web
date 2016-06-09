@@ -9,7 +9,7 @@ class SermonsController < ApplicationController
     @sermon = Sermon.new(sermon_params)
 
     if @sermon.save
-      redirect_to '/sermon'
+      redirect_to '/sermons'
     else
       flash[:error] = "Sermon cannot be created: "
       @sermon.errors.full_messages.each do |err|
