@@ -1,7 +1,7 @@
 .section
   %h1= year
   .row.newsletter-row
-    - newsletters.each do |n|
+    - newsletters.sort.each do |n|
       .col-md-3.col-sm-6.newsletter-col
         = link_to n.document.url, {class: 'no-text-decoration'} do
           .btn.btn-info.clearfix.center-block.newsletter-grid-button

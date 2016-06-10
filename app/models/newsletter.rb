@@ -13,4 +13,9 @@ class Newsletter < ActiveRecord::Base
   def year
     date.year
   end
+
+  # When comparing, use date to determine ordering
+  def <=>(other)
+    date <=> other.date
+  end
 end

@@ -12,7 +12,7 @@ class NewslettersController < ApplicationController
         @news_by_year.store(n.year, [n])
       end
     end
-    @news_by_year = @news_by_year.sort_by { |year,  newsletter| year }.reverse
+    @news_by_year = Hash[@news_by_year.sort_by { |year, _| year }.reverse]
   end
 
   def create
