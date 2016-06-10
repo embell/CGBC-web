@@ -1,3 +1,4 @@
+# Class for Newsletter. Essentially, this should be a pdf file and some metadata.
 class Newsletter < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :date

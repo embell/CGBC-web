@@ -1,3 +1,4 @@
+# Sermons model. Use this to work with file and data pertaining to a recording.
 class Sermon < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :speaker

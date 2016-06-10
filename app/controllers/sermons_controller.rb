@@ -1,8 +1,9 @@
+# Controller for sermons.
 class SermonsController < ApplicationController
   before_filter :authenticate_user!, only: :create
 
   def index
-    @title = "Sermons"
+    @title = 'Sermons'
     @sermons = Sermon.all
   end
 
@@ -12,7 +13,7 @@ class SermonsController < ApplicationController
     if @sermon.save
       redirect_to '/sermons'
     else
-      flash[:error] = "Sermon cannot be created: "
+      flash[:error] = 'Sermon cannot be created: '
       @sermon.errors.full_messages.each do |err|
         flash[:error] += err
       end

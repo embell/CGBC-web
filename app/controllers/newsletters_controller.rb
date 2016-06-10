@@ -3,7 +3,7 @@ class NewslettersController < ApplicationController
   before_filter :authenticate_user!, only: :create
 
   def index
-    @title = "Newsletter"
+    @title = 'Newsletter'
     @news_by_year = {}
     Newsletter.find_each do |n|
       if @news_by_year.keys.include? n.year
@@ -12,7 +12,7 @@ class NewslettersController < ApplicationController
         @news_by_year.store(n.year, [n])
       end
     end
-    @news_by_year = @news_by_year.sort_by {|year, newsletters| year}.reverse
+    @news_by_year = @news_by_year.sort_by { |year,  newsletter| year }.reverse
   end
 
   def create
@@ -25,7 +25,7 @@ class NewslettersController < ApplicationController
     if @newsletter.save
       redirect_to '/newsletter'
     else
-      flash[:error] = "Newsletter entry invalid: "
+      flash[:error] = 'Newsletter entry invalid: '
       @newsletter.errors.full_messages.each do |err|
         flash[:error] += err
       end
@@ -34,6 +34,6 @@ class NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:name, :date, :document) 
+    params.require(:newsletter).permit(:name, :date, :document)
   end
 end

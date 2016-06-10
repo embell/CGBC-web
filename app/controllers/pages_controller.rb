@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   end
 
   def history
-    @title = "History"
+    @title = 'History'
   end
 end

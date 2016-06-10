@@ -1,3 +1,4 @@
+# Devise based User model. Only purpose of user is to manage content.
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
