@@ -3,6 +3,7 @@ class NewslettersController < ApplicationController
   before_filter :authenticate_user!, only: :create
 
   def index
+    @title = "Newsletter"
     @news_by_year = {}
     Newsletter.find_each do |n|
       if @news_by_year.keys.include? n.year
