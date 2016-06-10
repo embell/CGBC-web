@@ -4,6 +4,9 @@ Metrics/LineLength:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Style/WordArray:
+  EnforcedStyle: brackets
+
 AllCops:
   Include:
     - Rakefile
