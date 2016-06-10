@@ -16,6 +16,12 @@
   width: max-content;
 }
 
+@mixin box-shadow($hOffset, $vOffset, $blur, $spread, $color) {
+  -webkit-box-shadow: $hOffset $vOffset $blur $spread $color;
+  -moz-box-shadow: $hOffset $vOffset $blur $spread $color;
+  box-shadow: $hOffset $vOffset $blur $spread $color;
+}
+
 @mixin filter($filter) {
   -webkit-filter: $filter;
   -moz-filter: $filter;

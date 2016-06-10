@@ -15,4 +15,5 @@
     .section
       %h2= s.title
       %p= "#{s.speaker}, #{s.date}"
-      = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio'
+      .sermon-audio-container
+        = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio'
