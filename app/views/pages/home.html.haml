@@ -1,6 +1,6 @@
 .row
   .col-md-8.col-xs-12
-    .section
+    .section#carousel-section
       .center
         .carousel.slide#myCarousel{:data => {:ride => 'carousel'}}
           %ol.carousel-indicators
@@ -24,7 +24,7 @@
           .btn.btn-info.clearfix.center-block
             %span.glyphicon.glyphicon-file(style='font-size: 2em;')
             %p#news-label
-              Newsletter
+              Most Recent Newsletter
           .sermon-audio-container
             = audio_tag Sermon.first.audio_file.url, controls: true, class: 'sermon-audio'
 
