@@ -25,8 +25,9 @@
             %span.glyphicon.glyphicon-file(style='font-size: 2em;')
             %p#news-label
               Most Recent Newsletter
-          .sermon-audio-container
-            = audio_tag Sermon.first.audio_file.url, controls: true, class: 'sermon-audio'
+          - if Sermon.first
+            .sermon-audio-container
+              = audio_tag Sermon.first.audio_file.url, controls: true, class: 'sermon-audio'
 
 .row
   .col-md-12
