@@ -17,17 +17,27 @@
   .col-md-4.col-xs-12
     .row
       .col-md-12.col-xs-6
-        .section
-          %h1
-            Welcome
-          %p
-            Cedar Grove is a Southern Baptist Church with a passion
-            for God and His truth. We seek to proclaim God's Word in
-            all its fullness as we strive to magnify God by sharing
-            the glories of Jesus Christ and His good news.
-      .col-md-12.col-xs-6
         = render "service_times"
+      .col-md-12.col-xs-6
+        .section
+          %h1 Stay Current
+          .btn.btn-info.clearfix.center-block
+            %span.glyphicon.glyphicon-file(style='font-size: 2em;')
+            %p#news-label
+              Newsletter
+          .sermon-audio-container
+            = audio_tag Sermon.first.audio_file.url, controls: true, class: 'sermon-audio'
 
+.row
+  .col-md-12
+    .section
+      %h1
+        Welcome
+      %p
+        Cedar Grove is a Southern Baptist Church with a passion
+        for God and His truth. We seek to proclaim God's Word in
+        all its fullness as we strive to magnify God by sharing
+        the glories of Jesus Christ and His good news.
 
 .row
   .col-md-4.col-xs-12
@@ -35,12 +45,6 @@
       %h1 Pastor's Message
       %p
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat, felis eget blandit laoreet, magna lacus laoreet ipsum, nec dignissim lacus tellus non tortor. Morbi euismod feugiat neque id commodo. Fusce felis mi, pulvinar ultricies risus ac, dapibus lobortis orci. Sed gravida eu arcu fermentum finibus. 
-    .section
-      %h1 Newsletter
-      .btn.btn-info.clearfix.center-block
-        %span.glyphicon.glyphicon-file(style='font-size: 2em;')
-        %p#news-label
-          Current Newsletter
 
   .col-md-4.col-xs-12
     .section
