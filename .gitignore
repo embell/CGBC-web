@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Ignore code coverage report folder from simplecov
+/coverage
+
 .env

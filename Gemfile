@@ -25,6 +25,15 @@ group :development, :test do
   gem 'thor'
 end
 
+group :test do
+  gem 'simplecov', :require => false
+end
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+group :development do
+  gem 'spring'
+end
+
 group :production, :postgresql do
   gem 'pg'
 end
@@ -60,8 +69,3 @@ gem 'devise', '~> 3.5'
 gem 'carrierwave'
 
 gem 'tzinfo-data'
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do
-  gem 'spring'
-end
