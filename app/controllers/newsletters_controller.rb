@@ -18,10 +18,6 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
 
-    unless @newsletter.name
-      @newsletter.name = view_context.get_newsletter_name(@newsletter.date)
-    end
-
     if @newsletter.save
       redirect_to '/newsletter'
     else

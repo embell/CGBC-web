@@ -11,5 +11,4 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SermonsHelper, type: :helper do
-
 end
