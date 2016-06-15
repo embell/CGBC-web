@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root 'pages#home'
-
   get 'home', to: 'pages#home'
   get 'index', to: 'pages#home'
 
@@ -10,10 +10,9 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
 
   get 'newsletter', to: 'newsletters#index'
-  resources :newsletters
+  resources :newsletters, only: [:index, :create]
 
-  get 'sermons', to: 'sermons#index'
-  resources :sermons
+  resources :sermons, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
