@@ -1,5 +1,5 @@
 @mixin full-image-bg($image-path) {
-  background-image: asset-url($image-path, image);
+  background-image: asset-url($image-path);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed; 
