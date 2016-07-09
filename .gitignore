@@ -18,4 +18,9 @@
 # Ignore code coverage report folder from simplecov
 /coverage
 
+# Ignore files uploaded during development
+/public/uploads
+
+# Ignore temp directories
 .env
+.swp
