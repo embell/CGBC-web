@@ -32,4 +32,8 @@ class NewslettersController < ApplicationController
   def newsletter_params
     params.require(:newsletter).permit(:name, :date, :document)
   end
+
+  def destroy
+    
+  end
 end

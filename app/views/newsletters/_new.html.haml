@@ -1,5 +1,5 @@
 .section
-  %h1 Newsletter
+  %h1 Add Newsletter
   - @newsletter ||= Newsletter.new
   = form_for @newsletter, url: {action: 'create', controller: 'newsletters'} do |f|
     .form-group

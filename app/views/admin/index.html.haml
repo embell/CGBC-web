@@ -7,7 +7,11 @@
 .clearfix
 %hr
 - if @user.permissions.include?(:newsletters)
-  = render 'newsletters/new'
+  .row
+    .col-md-8
+      = render 'newsletters/new'
+    .col-md-4
+      = render 'newsletters/delete'
 - if @user.permissions.include?(:sermons)
   = render 'sermons/new'
 - if @user.permissions.include?(:events)
