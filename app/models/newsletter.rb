@@ -15,6 +15,7 @@ class Newsletter < ActiveRecord::Base
 
   # Name for newsletters, by default, is MMM YYY
   def self.get_default_name(new_date)
+    return unless new_date.respond_to?(:month) && new_date.respond_to?(:year)
     month = new_date.month
     month = ((1..12).cover? month) ? Date::MONTHNAMES[month] : month
 

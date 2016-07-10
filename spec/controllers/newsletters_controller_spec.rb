@@ -10,10 +10,10 @@ RSpec.describe NewslettersController, type: :controller do
 
   describe 'POST #create' do
     context 'when logged off' do
-      it 'redirects' do
+      it 'redirects to login' do
         post :create
 
-        expect(response.status).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
 
@@ -44,14 +44,28 @@ RSpec.describe NewslettersController, type: :controller do
 
         it 'redirects to Newsletter index' do
           post :create, newsletter: { date: Time.now, document: fixture_file_upload('test.txt') }
-          expect(response.status).to redirect_to(:newsletter)
+          expect(response).to redirect_to(:newsletter)
         end
       end
 
       context 'with invalid parameters' do
-        it 'causes an error' do
+        it 'causes an error when parameters are missing' do
           bypass_rescue
           expect { post :create }.to raise_error(ActionController::ParameterMissing)
+        end
+
+        it 'redirects with error message when file is empty' do
+          post :create, newsletter: { date: Time.now, document: nil}
+
+          expect(flash[:error]).to match(/Document can't be blank/)
+          expect(response).to redirect_to(:admin)
+        end
+        
+        it 'redirects with error message when date is empty' do
+          post :create, newsletter: { date: nil, document: fixture_file_upload('test.txt') }
+
+          expect(flash[:error]).to match(/Date can't be blank/)
+          expect(response).to redirect_to(:admin)
         end
       end
     end
