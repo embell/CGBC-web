@@ -30,10 +30,14 @@ class NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:name, :date, :document)
+    params.require(:newsletter).permit(:id, :name, :date, :document)
   end
 
   def destroy
-    
+    n = newsletter.find(params[:id])
+    deleted_name = n.name
+    n.destroy 
+
+    redirect_to '/admin', flash[:success] = "Deleted newsletter '#{deleted_name}'."
   end
 end

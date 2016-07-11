@@ -5,4 +5,4 @@
       - all_newsletters = Newsletter.all.sort.reverse.map { |nl| [nl.name, nl.id] }
       = f.select :id, options_for_select(all_newsletters), class: 'form-control'
     .clearfix
-    = f.submit 'Delete', class: 'btn btn-danger'
+    = f.submit 'Delete', class: 'btn btn-danger', confirm: 'Are you really sure?'
