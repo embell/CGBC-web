@@ -1,8 +1,9 @@
 .section
   %h1 Delete Newsletter
-  = form_for @newsletter, method: :delete do |f|
+  - all_newsletters = Newsletter.all.sort.reverse.map { |nl| [nl.name, nl.id] }
+  = "1. #{newsletters_path}"
+  = "2. #{newsletters_path(Newsletter.new)}"
+  = form_for @newsletter, method: :delete, url: newsletters_path(@newsletter) do |f|
     .form-group
-      - all_newsletters = Newsletter.all.sort.reverse.map { |nl| [nl.name, nl.id] }
       = f.select :id, options_for_select(all_newsletters), class: 'form-control'
-    .clearfix
     = f.submit 'Delete', class: 'btn btn-danger', confirm: 'Are you really sure?'

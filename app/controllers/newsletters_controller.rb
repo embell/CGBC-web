@@ -34,7 +34,7 @@ class NewslettersController < ApplicationController
   end
 
   def destroy
-    n = newsletter.find(params[:id])
+    n = Newsletter.find(params[:id])
     deleted_name = n.name
     n.destroy 
 
