@@ -8,15 +8,16 @@ RSpec.describe NewslettersController, type: :controller do
     end
 
     it 'prepares newsletters sorted by year' do
-      n1 = Newsletter.create!({ date: Time.new(2015, 7, 1), document: fixture_file_upload('test.txt') })
-      n2 = Newsletter.create!({ date: Time.new(2017, 2, 3), document: fixture_file_upload('test.txt') })
+      n1 = Newsletter.create!({ date: Time.new(2015, 7,  1), document: fixture_file_upload('test.txt') })
+      n2 = Newsletter.create!({ date: Time.new(2017, 2,  3), document: fixture_file_upload('test.txt') })
       n3 = Newsletter.create!({ date: Time.new(2012, 12, 5), document: fixture_file_upload('test.txt') })
+      n4 = Newsletter.create!({ date: Time.new(2017, 9, 10), document: fixture_file_upload('test.txt') })
 
       get :index
 
-      expect(assigns(:news_by_year)).to eq({ 2017 => [n2], 2015 => [n1], 2012 => [n3] })
+      expect(assigns(:news_by_year)).to eq({ 2017 => [n2, n4], 2015 => [n1], 2012 => [n3] })
 
-      Newsletter.destroy_all
+      Newsletter.delete_all
     end
   end
 
