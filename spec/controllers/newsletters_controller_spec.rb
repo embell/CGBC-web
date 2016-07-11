@@ -6,6 +6,18 @@ RSpec.describe NewslettersController, type: :controller do
       get :index
       expect(response).to render_template :index
     end
+
+    it 'prepares newsletters sorted by year' do
+      n1 = Newsletter.create!({ date: Time.new(2015, 7, 1), document: fixture_file_upload('test.txt') })
+      n2 = Newsletter.create!({ date: Time.new(2017, 2, 3), document: fixture_file_upload('test.txt') })
+      n3 = Newsletter.create!({ date: Time.new(2012, 12, 5), document: fixture_file_upload('test.txt') })
+
+      get :index
+
+      expect(assigns(:news_by_year)).to eq({ 2017 => [n2], 2015 => [n1], 2012 => [n3] })
+
+      Newsletter.destroy_all
+    end
   end
 
   describe 'POST #create' do
@@ -32,7 +44,7 @@ RSpec.describe NewslettersController, type: :controller do
     context 'when logged on with newsletter permission' do
       login_with_permissions(["newsletters"])
 
-      context 'and using valid parameters' do
+      context 'and submitting valid parameters' do
         it 'successfully creates a new record' do
           initial_newsletter_count = Newsletter.count
           post :create, newsletter: { date: Time.now, document: fixture_file_upload('test.txt') }
@@ -48,7 +60,7 @@ RSpec.describe NewslettersController, type: :controller do
         end
       end
 
-      context 'with invalid parameters' do
+      context 'and submitting invalid parameters' do
         it 'causes an error when parameters are missing' do
           bypass_rescue
           expect { post :create }.to raise_error(ActionController::ParameterMissing)
