@@ -83,4 +83,10 @@ RSpec.describe NewslettersController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    pending 'will delete a record'
+    pending 'will delete the file associated to a record'
+    pending 'will not delete file if also associated to another record'
+  end
 end
