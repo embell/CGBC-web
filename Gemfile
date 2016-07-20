@@ -21,6 +21,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'byebug'
+  gem 'debugger'
   gem 'better_errors'
   gem 'minitest'
   gem 'thor'
