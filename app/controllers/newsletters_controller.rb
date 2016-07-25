@@ -1,6 +1,7 @@
 # Controller to handle newsletter requests
 class NewslettersController < ApplicationController
-  before_filter :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :validate_permission, only: [:create, :destroy]
 
   def index
     @title = 'Newsletter'
@@ -40,5 +41,12 @@ class NewslettersController < ApplicationController
 
     flash[:success] = "Deleted newsletter '#{deleted_name}'."
     redirect_to '/admin'
+  end
+
+  def validate_permission
+    unless current_user.permissions.include?('newsletters')
+      flash[:error] = 'You do not have permission to edit Newsletters.'
+      redirect_to '/admin'
+    end
   end
 end

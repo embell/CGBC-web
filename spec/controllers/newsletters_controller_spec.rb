@@ -31,7 +31,7 @@ RSpec.describe NewslettersController, type: :controller do
     end
 
     context 'when logged on without newsletter permission' do
-      login_with_permissions(["sermons"])
+      login_with_permissions([:sermons])
 
       it 'will not upload a new record' do
         initial_newsletter_count = Newsletter.count
@@ -43,7 +43,7 @@ RSpec.describe NewslettersController, type: :controller do
     end
 
     context 'when logged on with newsletter permission' do
-      login_with_permissions(["newsletters"])
+      login_with_permissions([:newsletters])
 
       context 'and submitting valid parameters' do
         it 'successfully creates a new record' do
