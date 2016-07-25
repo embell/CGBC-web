@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
 
   get 'newsletter', to: 'newsletters#index'
-  resources :newsletters, only: [:index, :create, :destroy]
+  delete 'newsletters', to: 'newsletters#destroy'
+  resources :newsletters, only: [:index, :create]
 
   resources :sermons, only: [:index, :create]
 

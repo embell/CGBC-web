@@ -1,6 +1,6 @@
 # Controller to handle newsletter requests
 class NewslettersController < ApplicationController
-  before_filter :authenticate_user!, only: :create
+  before_filter :authenticate_user!, only: [:create, :destroy]
 
   def index
     @title = 'Newsletter'
@@ -34,10 +34,11 @@ class NewslettersController < ApplicationController
   end
 
   def destroy
-    n = newsletter.find(params[:id])
+    n = Newsletter.find(newsletter_params[:id])
     deleted_name = n.name
     n.destroy 
 
-    redirect_to '/admin', flash[:success] = "Deleted newsletter '#{deleted_name}'."
+    flash[:success] = "Deleted newsletter '#{deleted_name}'."
+    redirect_to '/admin'
   end
 end
