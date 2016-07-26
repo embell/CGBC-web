@@ -44,7 +44,7 @@ class NewslettersController < ApplicationController
   end
 
   def validate_permission
-    unless current_user.permissions.include?('newsletters')
+    unless current_user.permissions.include?(:newsletters)
       flash[:error] = 'You do not have permission to edit Newsletters.'
       redirect_to '/admin'
     end
