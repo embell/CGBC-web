@@ -36,6 +36,8 @@ h2 {
 .section {
   margin-bottom: 25px;
   padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-radius: 2px;
 
   opacity: 0.98;
@@ -43,7 +45,7 @@ h2 {
   color: #EEEEEE;
 
   h1 {
-    margin-left: -15px;
+    margin-left: -30px;
     margin-top: -15px;
 
     @include width-max-content;
@@ -57,13 +59,7 @@ h2 {
     border-radius: 5px;
   }
 
-  .btn {
-    margin: 15px;
-  }
-
   p {
-    padding-left: 15px;
-    padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
   }

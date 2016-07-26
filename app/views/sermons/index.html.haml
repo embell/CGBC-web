@@ -14,7 +14,7 @@
   .col-md-9
     - @sermons.each do |s|
       .section
-        %h2= s.title
+        .sermon-title= s.title
         %p= "#{s.speaker}, #{s.date}"
         .sermon-audio-container
           = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio'
