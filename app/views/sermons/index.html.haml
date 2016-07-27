@@ -1,9 +1,11 @@
-.section
-  %h1 Sermons
-  %p Here's a sermons page header. Yeah!
-
 .row
-  .col-md-3
+  .col-sm-3
+    .section
+      %h1 Sermons
+      %p 
+        Each week we'll try to record our sermon so that we can later make available here.
+        We hope to educate, inspire, and touch lives by sharing these lessons!
+
     .section
       %h3 Sidebar
       %p This is my sidebar!
@@ -11,10 +13,14 @@
       %p Maybe like a search box and whatever, some filters for like date, speaker, etc
 
 
-  .col-md-9
+  .col-sm-9
     - @sermons.each do |s|
       .section
         .sermon-title= s.title
-        %p= "#{s.speaker}, #{s.date}"
+        .sermon-info
+          - ['speaker', 'date'].each do |info|
+            .sermon-info-chunk
+              ="#{info.capitalize}: " + eval("s.#{info}.to_s")
+              
         .sermon-audio-container
           = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio'
