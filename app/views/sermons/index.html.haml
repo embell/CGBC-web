@@ -16,6 +16,14 @@
           = label_tag :speaker, 'Speaker'
           = select_tag :speaker, options_for_select(@speakers, params[:speaker]),
                        class: 'sermon-search-input', include_blank: true
+        .form-group
+          = label_tag :year, 'Year'
+          = select_tag :year, options_for_select(@all_years, params[:year]),
+                       class: 'sermon-search-input', include_blank: true
+        .form-group
+          = label_tag :month, 'Month'
+          = select_tag :month, options_for_select((1..12).map { |m| [Date::MONTHNAMES[m], m] }, params[:month]),
+                       class: 'sermon-search-input', include_blank: true
         = submit_tag "Find It!", class: 'btn btn-primary'
       .clearfix
 

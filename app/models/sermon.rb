@@ -7,14 +7,33 @@ class Sermon < ActiveRecord::Base
 
   mount_uploader :audio_file, SermonUploader
 
-  def self.search(title, speaker)
+  def self.search(params)
+    # Start with everything, narrow down based on params
     matches = Sermon.all
-    if title
-      matches = matches.where("title LIKE ?", "%#{title}%")
+
+    if params[:title]
+      matches = matches.where("title LIKE ?", "%#{params[:title]}%")
     end
 
-    if speaker && !speaker.empty?
-      matches = matches.where("speaker LIKE ?", "#{speaker}")
+    if params[:speaker] && !params[:speaker].empty?
+      matches = matches.where("speaker LIKE ?", "#{params[:speaker]}")
+    end
+    
+    if params[:year] && !params[:year].empty?
+      year = DateTime.new(params[:year].to_i)
+      year_begin = year.beginning_of_year.prev_day
+      year_end = year.end_of_year
+      
+      matches = matches.where("date >= ? AND date <= ?", year_begin, year_end)
+    end
+    
+    if params[:month] && !params[:month].empty?
+      month = params[:month]
+      if ENV['RAILS_ENV'] == 'production'
+        matches = matches.where('extract(month FROM date) = ?', month)
+      elsif ENV['RAILS_ENV'] == 'development'
+        matches = matches.where("cast(strftime('%m', date) as int) = ?", month)
+      end
     end
 
     matches

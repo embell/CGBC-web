@@ -6,8 +6,16 @@ class SermonsController < ApplicationController
     @title = 'Sermons'
     @speakers = Sermon.distinct.pluck(:speaker)
 
-    if params[:title] || params[:speaker]
-      @sermons = Sermon.search(params[:title], params[:speaker])
+    @all_years = Sermon.distinct.pluck(:date)
+    @all_years.map! { |d| d.year }
+    @all_years.uniq!
+
+    search_params = params.select do |key, value| 
+      [:title, :speaker, :year, :month].include?(key.to_sym)
+    end
+
+    if search_params.any?
+      @sermons = Sermon.search(search_params)
     else
       @sermons = Sermon.all
     end
