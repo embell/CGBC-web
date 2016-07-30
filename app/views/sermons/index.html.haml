@@ -7,13 +7,26 @@
         We hope to educate, inspire, and touch lives by sharing these lessons!
 
     .section
-      %h3 Sidebar
-      %p This is my sidebar!
-      %p Over here, maybe we can put some controls and stuff. 
-      %p Maybe like a search box and whatever, some filters for like date, speaker, etc
+      %h3 Search
+      = form_tag '/sermons', method: 'GET', id: 'sermon-search-form' do
+        .form-group
+          = label_tag :title, 'Title'
+          = text_field_tag :title, params[:title], class: 'sermon-search-input'
+        .form-group
+          = label_tag :speaker, 'Speaker'
+          = select_tag :speaker, options_for_select(@speakers, params[:speaker]),
+                       class: 'sermon-search-input', include_blank: true
+        = submit_tag "Find It!", class: 'btn btn-primary'
+      .clearfix
 
 
   .col-sm-9
+    - if @sermons.empty?
+      .section
+        %h2 Sorry!
+        %p 
+          Looks like there's nothing here. Stay tuned for more. If you made it 
+          here by searching, modify your criteria and try again. 
     - @sermons.each do |s|
       .section
         .sermon-title= s.title

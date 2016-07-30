@@ -7,6 +7,19 @@ class Sermon < ActiveRecord::Base
 
   mount_uploader :audio_file, SermonUploader
 
+  def self.search(title, speaker)
+    matches = Sermon.all
+    if title
+      matches = matches.where("title LIKE ?", "%#{title}%")
+    end
+
+    if speaker && !speaker.empty?
+      matches = matches.where("speaker LIKE ?", "#{speaker}")
+    end
+
+    matches
+  end
+
   def day
     date.day
   end

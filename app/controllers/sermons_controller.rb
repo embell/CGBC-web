@@ -4,7 +4,13 @@ class SermonsController < ApplicationController
 
   def index
     @title = 'Sermons'
-    @sermons = Sermon.all
+    @speakers = Sermon.distinct.pluck(:speaker)
+
+    if params[:title] || params[:speaker]
+      @sermons = Sermon.search(params[:title], params[:speaker])
+    else
+      @sermons = Sermon.all
+    end
   end
 
   def create
