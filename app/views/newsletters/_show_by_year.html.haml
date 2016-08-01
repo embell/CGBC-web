@@ -1,5 +1,6 @@
 .section
-  %h1= year
+  .newsletter-year-header
+    %h2.centered-with-lines= year
   .row.newsletter-row
     - newsletters.sort.each do |n|
       .col-md-3.col-sm-6.newsletter-col

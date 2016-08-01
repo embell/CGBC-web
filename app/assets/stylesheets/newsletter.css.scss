@@ -9,6 +9,26 @@
   padding-bottom: 1em;
 }
 
+.newsletter-year-header {
+  background: #333333;
+  padding-top: 1em;
+  padding-bottom: 0.25em;
+  margin-bottom: 1em;
+
+  //Offset default padding from .section
+  margin-top: -5px;
+  margin-left: -20px;
+  margin-right: -20px;
+
+  //Match default border radius of .section
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
 .newsletter-row {
   margin-left: 20px;
   margin-right: 20px;

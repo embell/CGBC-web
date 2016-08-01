@@ -29,16 +29,12 @@ body {
   background: inherit;
 }
 
-h2 { 
-  margin-top: 45px;
-}
-
 .section {
   margin-bottom: 25px;
   padding: 5px;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 2px;
+  border-radius: 3px;
 
   opacity: 0.98;
   background-color: #111111;
@@ -80,6 +76,27 @@ h2 {
   select {
     width: 250px;
     float: left;
+  }
+}
+
+.centered-with-lines {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  &:before, &:after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: #EEEEEE;
+    min-width: 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
