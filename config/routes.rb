@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete 'newsletters', to: 'newsletters#destroy'
   resources :newsletters, only: [:index, :create]
 
+  delete 'sermons', to: 'sermons#destroy'
   resources :sermons, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.

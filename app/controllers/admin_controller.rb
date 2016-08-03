@@ -4,6 +4,16 @@ class AdminController < ApplicationController
 
   def index
     @title = 'Administration'
-    @user = current_user
+    
+    user = current_user
+    if user.permissions.include?(:newsletters)
+      @show_newsletter_fields = true
+      @all_newsletters = Newsletter.all.sort.reverse.map { |nl| [nl.name, nl.id] }
+    end
+
+    if user.permissions.include?(:sermons)
+      @show_sermon_fields = true
+      @all_sermons = Sermon.all.sort.reverse.map { |s| [s.title, s.id] }
+    end
   end
 end

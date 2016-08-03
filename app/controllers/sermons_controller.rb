@@ -1,6 +1,7 @@
 # Controller for sermons.
 class SermonsController < ApplicationController
-  before_filter :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :validate_permission, only: [:create, :destroy]
 
   def index
     @title = 'Sermons'
@@ -35,7 +36,25 @@ class SermonsController < ApplicationController
     end
   end
 
+  def destroy
+    s = Sermon.find(sermon_params[:id])
+    deleted_title = s.title
+
+    s.destroy
+
+    flash[:success] = "Deleted sermon '#{deleted_title}'."
+    redirect_to '/admin'
+  end
+
   def sermon_params
-    params.require(:sermon).permit(:title, :speaker, :date, :audio_file)
+    params.require(:sermon).permit(:id, :title, :speaker, :date, :audio_file)
+  end
+
+  # TODO: This function is redudant with same function in newsletter controller. Combine these.
+  def validate_permission
+    unless current_user.permissions.include?(:sermons)
+      flash[:error] = 'You do not have permission to edit Sermons.'
+      redirect_to '/admin'
+    end
   end
 end

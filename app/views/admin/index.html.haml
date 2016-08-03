@@ -6,15 +6,15 @@
       = link_to('Logout', destroy_user_session_path, :method => :delete)
 .clearfix
 %hr
-- if @user.permissions.include?(:newsletters)
+- if @show_newsletter_fields 
   .row
     .col-md-8
       = render 'newsletters/new'
     .col-md-4
       = render 'newsletters/delete'
-- if @user.permissions.include?(:sermons)
-  = render 'sermons/new'
-- if @user.permissions.include?(:events)
-  .section
-    %h1 Events
-    Hello world
+- if @show_sermon_fields
+  .row
+    .col-md-8
+      = render 'sermons/new'
+    .col-md-4
+      = render 'sermons/delete'
