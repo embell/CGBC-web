@@ -37,7 +37,7 @@
           here by searching, modify your criteria and try again. 
     - @sermons.each do |s|
       .section
-        .sermon-title= s.title
+        %h2.centered-with-lines= s.title
         .sermon-info
           - ['speaker', 'date'].each do |info|
             .sermon-info-chunk

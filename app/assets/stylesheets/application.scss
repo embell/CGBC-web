@@ -83,6 +83,12 @@ body {
   }
 }
 
+h2 {
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 2em;
+}
+
 .centered-with-lines {
   display: flex;
   align-items: center;
@@ -94,13 +100,18 @@ body {
     flex-grow: 1;
     height: 1px;
     background: #EEEEEE;
-    min-width: 10px;
+    min-width: 25px;
 
     display: inline-block;
     vertical-align: middle;
+  }
 
-    margin-left: 20px;
+  &:before {
     margin-right: 20px;
+  }
+
+  &:after {
+    margin-left: 20px;
   }
 }
 
