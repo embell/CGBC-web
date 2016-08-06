@@ -130,6 +130,22 @@ h2 {
   border: 1px solid black;
 }
 
+.nav-pills {
+  li {
+    text-align: center;
+    
+    a {
+      background: #333333;
+      color: #EEEEEE;
+      margin: 5px;
+
+      &:hover, &:focus {
+        color: #111111;
+      }
+    }
+  }
+}
+
 footer {
   color: #EEEEEE;
 }
