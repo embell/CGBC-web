@@ -4,14 +4,12 @@
   font-size: 20pt;
   font-weight: bold;
 
-  width: 85%;
+  width: 95%;
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
 .newsletter-year-header {
-  background: #333333;
-
   padding-top: 1em;
   padding-bottom: 0.25em;
   padding-left: 20px;
@@ -34,15 +32,17 @@
 }
 
 .newsletter-row {
+  margin-top: 2.5em;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 .newsletter-col {
-  margin-bottom: 1em;
+  margin-bottom: 2.5em;
 }
 
 .no-text-decoration {
   text-decoration: none;
-  &:hover {text-decoration: none;}
+  &:hover, &:focus {text-decoration: none;}
 }
+

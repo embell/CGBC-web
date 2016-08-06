@@ -1,7 +1,9 @@
 .section
-  .newsletter-year-header
-    %h2.centered-with-lines= year
-  .row.newsletter-row
+  %a.no-text-decoration{data: {toggle: 'collapse', parent: '#accordion'}, href: "#collapse#{year}"}
+    .newsletter-year-header.interactive-element
+      %h2.centered-with-lines{id: "#{year}"}
+        = year
+  .row.newsletter-row.collapse{id: "collapse#{year}", class: ("in" unless first_year != year)}
     - newsletters.sort.each do |n|
       .col-md-3.col-sm-6.newsletter-col
         = link_to n.document.url, {class: 'no-text-decoration'} do

@@ -1,48 +1,18 @@
-.section
-  %h1 Newsletter  
+.row
+  .col-md-3
+    .section
+      %h1 Newsletter  
 
-  %p
-    This newsletter is a montly overview of the things going on at church. 
-    Check it out!
-
-- @news_by_year.each do |year, newsletters| 
-  = render partial: 'show_by_year', locals: {year: year, newsletters: newsletters}
-
--#.section
-  .panel-group#accordion
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseOne'}
-            2016
-      .panel-collapse.collapse.in#collapseOne
-        .panel-body
-          - ["January", "February", "December"].each do |month|
-            .col-md-3
-              .panel.panel-default
-                .panel-body
-                  = month
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseTwo'}
-            2015
-      .panel-collapse.collapse#collapseTwo
-        .panel-body
-          - ["January", "February", "March", "April", "May", "June", "July"].each do |month|
-            .col-md-3
-              .panel.panel-default
-                .panel-body
-                  = month
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a{:data => {:toggle => 'collapse', :parent => '#accordion'}, :href => '#collapseThree'}
-            2014
-      .panel-collapse.collapse#collapseThree
-        .panel-body
-          - ["January", "February", "December"].each do |month|
-            .col-md-3
-              .panel.panel-default
-                .panel-body
-                  = month
+      %p
+        This newsletter is a montly overview of the things going on at church. 
+        Check it out!
+    .section
+      %h3 Jump To
+      %ul.sidebar-links
+        - @news_by_year.keys.each do |year|
+          %li= link_to year, "##{year}", class: "gotoYear"
+  - first_year = @news_by_year.keys.first
+  .col-md-9
+    #accordion
+      - @news_by_year.each do |year, newsletters| 
+        = render partial: 'show_by_year', locals: {year: year, newsletters: newsletters, first_year: first_year}

@@ -147,6 +147,38 @@ h2 {
   }
 }
 
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+
+  li {
+    text-align: center;
+    margin: 10px 5px;
+    
+    a {
+      @extend .interactive-element;
+      display: block;
+      font-size: 14px;
+      padding: 10px;
+
+      border-radius: 4px;
+    }
+  }
+}
+
+.interactive-element {
+  text-decoration: none;
+  
+  background: #333333;
+  color: #EEEEEE;
+
+  &:hover {
+    background: #555555;  
+    color: #FFFFFF;
+    transition: 0.5s;
+  }
+}
+
 footer {
   color: #EEEEEE;
 }
