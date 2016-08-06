@@ -22,10 +22,10 @@
     .section
       %h3 Technical Problems?
       %p Fill out the form below if you find any bugs or have any suggestions for the website.
-      =form_tag('send_mail') do
+      = form_tag('send_mail') do
         .form-group
-          =text_area_tag 'comments', nil, class: 'form-control'
-        =button_tag 'Send', class: 'btn btn-primary'
+          = text_area_tag 'comments', nil, class: 'form-control'
+        = button_tag 'Send', class: 'btn btn-primary'
 
   .col-md-8
     .section
