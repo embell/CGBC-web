@@ -1,26 +1,39 @@
-.section
-  %h1 Contact Us
+.row
+  .col-md-4
+    .section
+      %h1 Contact Us
 
-  %p
-    We'd love to hear from you! Please contact us with any questions about our ministry.
+      %p
+        We'd love to hear from you! Please contact us with any questions about our ministry.
+      %h3 Phone
+      %p
+        336) 626-0551
+      %h3 Email
+      %p
+        Pastor Marty Grainger: AMGrainger81@gmail.com
+      %h3 Address
+      %p
+        3012 Old HWY 49 South
+        %br
+        Asheboro NC 27204
+        %br
+        P.O. Box 2943
 
-  %p
-    Reach CGBC by phone at (336) 626-0551.
+    .section
+      %h3 Technical Problems?
+      %p Fill out the form below if you find any bugs or have any suggestions for the website.
+      =form_tag('send_mail') do
+        .form-group
+          =text_area_tag 'comments', nil, class: 'form-control'
+        =button_tag 'Send', class: 'btn btn-primary'
 
-  %p
-    Contact pastor Marty Grainger by email at AMGrainger81@gmail.com
-
-  %p
-    The church is located at 3012 Old HWY 49 South, Asheboro NC 27204. P.O. Box 2943.
-
-.section
-  %h1 Technical Problems?
-  %p
-    Have you spotted a bug on the web site? Just have a suggestion? 
-    Please use the form below to let us know right away!
-
-  .row
-    .col-md-11
-      =text_area_tag 'email-text', nil, class: 'form-control'
-    .col-md-1
-      .btn.btn-primary Submit
+  .col-md-8
+    .section
+      %h3 Visit
+      %p
+        The best way to reach us is to come by and visit. Our address is
+        3012 Old HWY 49 South, Asheboro NC 27204, and our services are
+        every Sunday morning at 10 AM.
+      #map
+        %iframe{src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51857.02052087495!2d-79.9331923557176!3d35.6754314461984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88536ff218e101fb%3A0xbd905770b768ab3d!2s3012+Old+State+Hwy+49%2C+Asheboro%2C+NC+27205!5e0!3m2!1sen!2sus!4v1470497322470",
+                width:600, height: 450, frameborder: 0, style: "border:0"}
