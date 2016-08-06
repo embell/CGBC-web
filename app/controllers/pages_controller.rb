@@ -6,4 +6,8 @@ class PagesController < ApplicationController
   def history
     @title = 'History'
   end
+
+  def contact
+    @title = 'Contact'
+  end
 end

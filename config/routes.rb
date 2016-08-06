@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'history', to: 'pages#history'
 
+  get 'contact', to: 'pages#contact'
+
   get 'admin', to: 'admin#index'
 
   get 'newsletter', to: 'newsletters#index'
