@@ -4,8 +4,17 @@
   }
 }
 
-#welcome {
-  font-size: 24pt;
+#welcome-box {
+  padding: 3% 9%;
+
+  #greeting {
+    font-size: 40pt;
+  }
+
+  p {
+    text-align: justify;
+    font-size: 18pt;  
+  }
 }
 
 #carousel-section {
