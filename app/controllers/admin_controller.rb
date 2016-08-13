@@ -18,6 +18,7 @@ class AdminController < ApplicationController
 
     if user.permissions.include?(:articles)
       @show_article_fields = true
+      @all_articles = Article.all.sort.reverse.map { |a| [a.title, a.id] }
     end
   end
 end

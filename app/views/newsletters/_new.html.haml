@@ -7,6 +7,7 @@
       = f.file_field :document, class: 'form-control'
     .form-group
       = f.label 'Date', nil, class: 'control-label'
-      = f.date_select :date, {discard_day: true}, {class: 'form-control'}
+      %div
+        = f.date_select :date, {discard_day: true}, {class: 'form-control'}
     .clearfix
     = f.submit 'Add', class: 'btn btn-primary'

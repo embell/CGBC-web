@@ -1,0 +1,20 @@
+.row
+  .col-sm-3
+    .section
+      %h1 Articles
+      
+      %p This blog will have occasional writings from our pastor.
+
+    .section
+      %h3 Jump To
+      %ul.sidebar-links
+        - @all_articles.each do |a|
+          %li= link_to a.title, "##{a.title}"
+
+  .col-sm-9
+    - @all_articles.each do |a|
+      .section
+        %h2.centered-with-lines{id: a.title}
+          = a.title
+        %article
+          = a.text
