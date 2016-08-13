@@ -14,6 +14,10 @@ if Rails.env = 'development'
               password_confirmation: '12345678',
               permissions: [:sermons])
 
+  User.create(email: 'articles@example.com', password: '12345678',
+              password_confirmation: '12345678',
+              permissions: [:articles])
+
   User.create(email: 'news.events@example.com', password: '12345678',
               password_confirmation: '12345678',
               permissions: [:newsletters, :events])

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   delete 'sermons', to: 'sermons#destroy'
   resources :sermons, only: [:index, :create]
 
+  delete 'articles', to: 'articles#destroy'
+  resources :articles, only: [:index, :create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -18,3 +18,8 @@
       = render 'sermons/new'
     .col-md-4
       = render 'sermons/delete'
+
+- if @show_article_fields
+  .row
+    .col-md-8
+      = render 'articles/new'

@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   serialize :permissions, Array
 
   def self.all_permissions
-    [:newsletters, :sermons, :events]
+    [:newsletters, :sermons, :events, :articles]
   end
 end

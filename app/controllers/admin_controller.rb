@@ -15,5 +15,9 @@ class AdminController < ApplicationController
       @show_sermon_fields = true
       @all_sermons = Sermon.all.sort.reverse.map { |s| [s.title, s.id] }
     end
+
+    if user.permissions.include?(:articles)
+      @show_article_fields = true
+    end
   end
 end

@@ -1,5 +1,5 @@
 .section
-  %h1 Sermons
+  %h1 Add Sermon
   - @sermon ||= Sermon.new
   = form_for @sermon, url: {action: 'create', controller: 'sermons'} do |f|
     .form-group
