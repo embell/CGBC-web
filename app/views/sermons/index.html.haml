@@ -44,4 +44,4 @@
               ="#{info.capitalize}: " + eval("s.#{info}.to_s")
               
         .sermon-audio-container
-          = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio'
+          = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio', preload: 'metadata'
