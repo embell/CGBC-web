@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'history', to: 'pages#history'
 
   get 'contact', to: 'pages#contact'
+  post 'send_contact_mail', to: 'mail#send_contact_mail'
   # Add a route here for sending messages, possibly by making a Contact controller
   # match 'send', to: 'contact#send', via: 'post'
 

@@ -5,7 +5,7 @@ class ContactMailer < ActionMailer::Base
     ['emb1234@gmail.com']
   end
 
-  def contact_email(email, comment)
+  def contact_email(name, email, comment)
     # Maybe 'to:' instead of bcc?
     mail(bcc: default_emails, subject: "New question/comment from CGBC website")
   end

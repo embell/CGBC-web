@@ -22,7 +22,13 @@
     .section
       %h3 Technical Problems?
       %p Fill out the form below if you find any bugs or have any suggestions for the website.
-      = form_tag('send_mail') do
+      = form_tag('send_contact_mail') do
+        .form-group
+          = label_tag 'name', 'Name'
+          = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name'
+        .form-group
+          = label_tag 'email', 'email'
+          = text_field_tag 'email', nil, class: 'form-control', placeholder: 'Email'
         .form-group
           = text_area_tag 'comments', nil, class: 'form-control'
         = button_tag 'Send', class: 'btn btn-primary'
