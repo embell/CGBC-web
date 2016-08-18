@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "contact@mail.cgbc-nc.com"
+  default from: "CGBC-Web <contact@mail.cgbc-nc.com>"
 
   def default_emails
     ['emb1234@gmail.com']
