@@ -20,17 +20,15 @@
         P.O. Box 2943
 
     .section
-      %h3 Technical Problems?
-      %p Fill out the form below if you find any bugs or have any suggestions for the website.
+      %h3 Website Issues
       = form_tag('send_contact_mail') do
         .form-group
-          = label_tag 'name', 'Name'
-          = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name'
+          = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name'
         .form-group
-          = label_tag 'email', 'Email'
-          = text_field_tag 'email', nil, class: 'form-control', placeholder: 'Email'
+          = text_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email'
         .form-group
-          = text_area_tag 'comments', nil, rows: 4, class: 'form-control'
+          = text_area_tag 'comments', nil, rows: 4, class: 'form-control',
+                          placeholder: 'Suggestions, corrections, comments, bugs, or questions'
         = button_tag 'Send', class: 'btn btn-primary'
 
   .col-md-8
