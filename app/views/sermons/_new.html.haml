@@ -4,18 +4,16 @@
   = form_for @sermon, url: {action: 'create', controller: 'sermons'} do |f|
     .form-group
       = f.label 'Title', nil, class: 'control-label'
-      %div
-        = f.text_field :title, {class: 'form-control'}
+      = f.text_field :title, {class: 'form-control'}
     .form-group
       = f.label 'Speaker', nil, class: 'control-label'
-      %div
-        = f.text_field :speaker, {class: 'form-control'}
+      = f.text_field :speaker, {class: 'form-control'}
     .form-group
       = f.label 'File', nil, class: 'control-label'
       = f.file_field :audio_file, class: 'form-control'
     .form-group
       = f.label 'Date', nil, class: 'control-label'
-      %div
-        = f.date_select :date, {class: 'form-control'}
-    .clearfix
+      .form-group
+        = f.date_select :date, {}, {class: 'form-control date-select'}
+        .clearfix
     = f.submit 'Add', class: 'btn btn-primary'
