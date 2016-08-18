@@ -3,6 +3,10 @@
   %head
   %body
     %h1
-      Hello!
+      Comment from 
+      = @name
+    = "Return email: #{@email}"
+    %p
+      = @comment
     %p
       This is just a test email. If you're getting this and you shouldn't, please yell at me. 
