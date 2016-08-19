@@ -1,3 +1,4 @@
+# Controller for Articles - to be used as a basis for a blog-like publication
 class ArticlesController < ApplicationController
   def index
     @title = 'Articles'
@@ -12,7 +13,7 @@ class ArticlesController < ApplicationController
     else
       flash[:error] = 'Article entry invalid: '
       @article.errors.full_messages.each do |err|
-        flash[:error] += err 
+        flash[:error] += err
       end
       redirect_to '/admin'
     end
@@ -22,8 +23,8 @@ class ArticlesController < ApplicationController
     a = Article.find(params.require(:article).permit(:id)[:id])
     deleted_title = a.title
     a.destroy
-    
-    flash[:success] = "Deleted article '#{deleted_title}'." 
+
+    flash[:success] = "Deleted article '#{deleted_title}'."
     redirect_to '/admin'
   end
 

@@ -1,5 +1,6 @@
+# Mailer used for contact forms on the Contact page
 class ContactMailer < ActionMailer::Base
-  default from: "CGBC-Web <contact@mail.cgbc-nc.com>"
+  default from: 'CGBC-Web <no-reply@mail.cgbc-nc.com>'
 
   def default_emails
     ['emb1234@gmail.com']
@@ -9,6 +10,6 @@ class ContactMailer < ActionMailer::Base
     @name = name
     @email = email
     @comment = comment
-    mail(to: default_emails, subject: "New question/comment from CGBC website")
+    mail(to: default_emails, subject: 'New question/comment from CGBC website')
   end
 end

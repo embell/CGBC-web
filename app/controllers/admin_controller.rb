@@ -4,7 +4,7 @@ class AdminController < ApplicationController
 
   def index
     @title = 'Administration'
-    
+
     user = current_user
     if user.permissions.include?(:newsletters)
       @show_newsletter_fields = true

@@ -12,21 +12,21 @@ class Sermon < ActiveRecord::Base
     matches = Sermon.all
 
     if params[:title]
-      matches = matches.where("title LIKE ?", "%#{params[:title]}%")
+      matches = matches.where('title LIKE ?', "%#{params[:title]}%")
     end
 
     if params[:speaker] && !params[:speaker].empty?
-      matches = matches.where("speaker LIKE ?", "#{params[:speaker]}")
+      matches = matches.where('speaker LIKE ?', params[:speaker].to_s)
     end
-    
+
     if params[:year] && !params[:year].empty?
       year = DateTime.new(params[:year].to_i)
       year_begin = year.beginning_of_year.prev_day
       year_end = year.end_of_year
-      
-      matches = matches.where("date >= ? AND date <= ?", year_begin, year_end)
+
+      matches = matches.where('date >= ? AND date <= ?', year_begin, year_end)
     end
-    
+
     if params[:month] && !params[:month].empty?
       month = params[:month]
       if ENV['RAILS_ENV'] == 'production'

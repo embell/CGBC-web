@@ -8,18 +8,13 @@ class SermonsController < ApplicationController
     @speakers = Sermon.distinct.pluck(:speaker)
 
     @all_years = Sermon.distinct.pluck(:date)
-    @all_years.map! { |d| d.year }
-    @all_years.uniq!
+    @all_years.map!(&:year).uniq!
 
-    search_params = params.select do |key, value| 
+    search_params = params.select do |key, _|
       [:title, :speaker, :year, :month].include?(key.to_sym)
     end
 
-    if search_params.any?
-      @sermons = Sermon.search(search_params)
-    else
-      @sermons = Sermon.all
-    end
+    @sermons = search_params.any? ? Sermon.search(search_params) : Sermon.all
   end
 
   def create

@@ -37,7 +37,7 @@ class NewslettersController < ApplicationController
   def destroy
     n = Newsletter.find(newsletter_params[:id])
     deleted_name = n.name
-    n.destroy 
+    n.destroy
 
     flash[:success] = "Deleted newsletter '#{deleted_name}'."
     redirect_to '/admin'
