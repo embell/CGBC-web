@@ -117,17 +117,6 @@ h2 {
   }
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  @include filter(saturate(10%) invert(100%));
-
-  &:hover {
-    @include filter(saturate(100%));
-    @include filter(drop-shadow(2px 1px 1px rgba(2,2,2,0.7)));
-  }
-}
-
 .alert {
   border: 1px solid black;
 }
@@ -177,6 +166,17 @@ h2 {
     background: #555555;  
     color: #FFFFFF;
     transition: 0.5s;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  @include filter(saturate(10%) invert(100%));
+
+  &:hover {
+    @include filter(saturate(100%));
+    @include filter(drop-shadow(2px 1px 1px rgba(2,2,2,0.7)));
   }
 }
 
