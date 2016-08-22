@@ -50,4 +50,9 @@ class Sermon < ActiveRecord::Base
   def year
     date.year
   end
+
+  # When comparing, use date to determine order
+  def <=>(other)
+    date <=> other.date
+  end
 end

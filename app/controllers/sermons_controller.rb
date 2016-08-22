@@ -15,6 +15,9 @@ class SermonsController < ApplicationController
     end
 
     @sermons = search_params.any? ? Sermon.search(search_params) : Sermon.all
+
+    # Show newest Sermons first
+    @sermons = @sermons.sort.reverse
   end
 
   def create
