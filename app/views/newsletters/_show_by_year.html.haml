@@ -5,7 +5,7 @@
         = year
   .row.newsletter-row.collapse{id: "collapse#{year}", class: "in"}
     - newsletters.sort.each do |n|
-      .col-md-3.col-sm-6.newsletter-col
+      .col-md-3.col-xs-4.newsletter-col
         = link_to n.document.url, {class: 'no-text-decoration'} do
           .btn.btn-info.clearfix.center-block.newsletter-grid-button
             = n.name.split.first
