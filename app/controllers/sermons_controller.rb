@@ -14,7 +14,18 @@ class SermonsController < ApplicationController
       [:title, :speaker, :year, :month].include?(key.to_sym)
     end
 
-    @sermons = search_params.any? ? Sermon.search(search_params) : Sermon.all
+    if search_params.any?
+      @sermons = Sermon.search(search_params)
+      if @sermons.empty?
+        flash.now[:error] = ['Found no sermons matching these search criteria: ']
+        search_params.each do |key, val|
+          flash[:error] << "#{key.capitalize} - #{val}" unless val.blank?
+        end
+        @sermons = Sermon.all
+      end
+    else
+      @sermons = Sermon.all
+    end
 
     # Show newest Sermons first
     @sermons = @sermons.sort.reverse

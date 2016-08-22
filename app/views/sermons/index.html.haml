@@ -24,7 +24,8 @@
           = label_tag :month, 'Month'
           = select_tag :month, options_for_select((1..12).map { |m| [Date::MONTHNAMES[m], m] }, params[:month]),
                        class: 'form-control', include_blank: true
-        = submit_tag "Find It!", class: 'btn btn-primary'
+        = submit_tag "Find It", class: 'btn btn-primary'
+        = link_to "Clear Filter", sermons_path, class: 'btn btn-default'
       .clearfix
 
 
