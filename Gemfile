@@ -69,5 +69,6 @@ end
 gem 'haml'
 gem 'devise', '~> 3.5'
 gem 'carrierwave'
+gem 'pericope'
 
 gem 'tzinfo-data'
