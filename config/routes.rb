@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :newsletters, only: [:index, :create]
 
   delete 'sermons', to: 'sermons#destroy'
-  resources :sermons, only: [:index, :create]
+  resources :sermons, only: [:index, :create, :edit, :update]
 
   delete 'articles', to: 'articles#destroy'
   resources :articles, only: [:index, :create]

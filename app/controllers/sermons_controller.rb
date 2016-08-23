@@ -1,7 +1,7 @@
 # Controller for sermons.
 class SermonsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :validate_permission, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+  before_action :validate_permission, only: [:create, :edit, :update, :destroy]
 
   def index
     @title = 'Sermons'
@@ -43,6 +43,16 @@ class SermonsController < ApplicationController
       end
       redirect_to '/admin'
     end
+  end
+
+  def edit
+    @sermon = Sermon.find(params[:id])
+  end
+
+  def update
+    @sermon = Sermon.find(params[:id])    
+    @sermon.update(sermon_params)
+    redirect_to '/sermons'
   end
 
   def destroy
