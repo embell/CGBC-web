@@ -16,6 +16,7 @@ class SermonsController < ApplicationController
 
     if search_params.any?
       @sermons = Sermon.search(search_params)
+      @show_clear = true
       if @sermons.empty?
         flash.now[:error] = ['Found no sermons matching these search criteria: ']
         search_params.each do |key, val|
@@ -25,6 +26,7 @@ class SermonsController < ApplicationController
       end
     else
       @sermons = Sermon.all
+      @show_clear = false
     end
 
     # Show newest Sermons first
