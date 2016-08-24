@@ -28,12 +28,12 @@
         %nav.collapse.navbar-collapse#cgbc-navbar
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              %li= link_to 'Admin',     'admin'
-            %li= link_to 'Sermons',     'sermons'
-            %li= link_to 'Articles',    'articles'
-            %li= link_to 'Newsletter',  'newsletter'
-            %li= link_to 'History',     'history'
-            %li= link_to 'Contact',     'contact'
+              %li= link_to 'Admin',     admin_path
+            %li= link_to 'Sermons',     sermons_path
+            %li= link_to 'Articles',    articles_path 
+            %li= link_to 'Newsletter',  newsletters_path
+            %li= link_to 'History',     history_path
+            %li= link_to 'Contact',     contact_path
             -#%li= link_to 'Calendar',    '#'
             -#%li= link_to 'Ministries',  '#'
             -#%li= link_to 'Beliefs',     '#'
