@@ -57,7 +57,7 @@ RSpec.describe NewslettersController, type: :controller do
 
         it 'redirects to Newsletter index' do
           post :create, newsletter: { date: Time.now, document: fixture_file_upload('test.txt') }
-          expect(response).to redirect_to(:newsletter)
+          expect(response).to redirect_to(:newsletters)
         end
       end
 

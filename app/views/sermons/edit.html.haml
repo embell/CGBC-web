@@ -1,6 +1,5 @@
 .section
   %h1 Edit Sermon
-  - @sermon ||= Sermon.new
   = form_for @sermon do |f|
     .form-group
       = f.label 'Title', nil, class: 'control-label'
@@ -17,3 +16,4 @@
         = f.date_select :date, {}, {class: 'form-control date-select'}
         .clearfix
     = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Delete', sermon_path(@sermon), class: 'btn btn-danger', data: {method: 'DELETE'}

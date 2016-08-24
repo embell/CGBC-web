@@ -9,20 +9,18 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'pages#contact'
   post 'send_contact_mail', to: 'mail#send_contact_mail'
-  # Add a route here for sending messages, possibly by making a Contact controller
-  # match 'send', to: 'contact#send', via: 'post'
 
   get 'admin', to: 'admin#index'
 
+  resources :newsletters, only: [:index, :create, :destroy, :update]
+  get 'newsletters/edit', to: 'newsletters#edit'
   get 'newsletter', to: 'newsletters#index'
-  delete 'newsletters', to: 'newsletters#destroy'
-  resources :newsletters, only: [:index, :create]
 
-  delete 'sermons', to: 'sermons#destroy'
-  resources :sermons, only: [:index, :create, :edit, :update]
+  get 'sermons/edit', to: 'sermons#edit'
+  resources :sermons, only: [:index, :create, :destroy, :update]
 
-  delete 'articles', to: 'articles#destroy'
-  resources :articles, only: [:index, :create]
+  get 'articles/edit', to: 'articles#edit'
+  resources :articles, only: [:index, :create, :destroy, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,17 @@
+.section
+  %h1 Edit Newsletter
+  = form_for @newsletter do |f|
+    .form-group
+      = f.label 'Name', nil, class: 'control-label'
+      = f.text_field :name, {class: 'form-control'}
+    .form-group
+      = f.label 'Date', nil, class: 'control-label'
+      .form-group
+        = f.date_select :date, {discard_day: true}, {class: 'form-control date-select'}
+        .clearfix
+    .form-group
+      = link_to @newsletter.document.url, {class: 'no-text-decoration'} do
+        .btn.btn-info
+          View File
+    = f.submit 'Save', class: 'btn btn-primary'
+    = link_to 'Delete', newsletter_path(@newsletter), class: 'btn btn-danger', data: {method: 'DELETE'}

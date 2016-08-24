@@ -1,6 +1,0 @@
-.section
-  %h1 Delete Sermon
-  = form_for @sermon, method: :delete do |f|
-    .form-group
-      = f.select :id, options_for_select(@all_sermons), {}, {class: 'form-control'}
-    = f.submit 'Delete', class: 'btn btn-danger', confirm: 'Are you really sure?'

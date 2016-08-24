@@ -11,17 +11,18 @@
     .col-md-8
       = render 'newsletters/new'
     .col-md-4
-      = render 'newsletters/delete'
+      = render 'newsletters/select_for_edit'
+
 - if @show_sermon_fields
   .row
     .col-md-8
       = render 'sermons/new'
     .col-md-4
-      = render 'sermons/delete'
+      = render 'sermons/select_for_edit'
 
 - if @show_article_fields
   .row
     .col-md-8
       = render 'articles/new'
     .col-md-4
-      = render 'articles/delete'
+      = render 'articles/select_for_edit'

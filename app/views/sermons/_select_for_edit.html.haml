@@ -1,0 +1,6 @@
+.section
+  %h1 Edit Sermon
+  = form_for @sermon, method: 'get', url: {action: 'edit', controller: 'sermons'} do |f|
+    .form-group
+      = f.select :id, options_for_select(@all_sermons), {}, {class: 'form-control'}
+    = f.submit 'Edit', class: 'btn btn-primary'

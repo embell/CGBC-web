@@ -48,7 +48,7 @@ class SermonsController < ApplicationController
   end
 
   def edit
-    @sermon = Sermon.find(params[:id])
+    @sermon = Sermon.find(sermon_params[:id])
   end
 
   def update
@@ -58,7 +58,7 @@ class SermonsController < ApplicationController
   end
 
   def destroy
-    s = Sermon.find(sermon_params[:id])
+    s = Sermon.find(params[:id])
     deleted_title = s.title
 
     s.destroy
