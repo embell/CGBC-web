@@ -8,6 +8,9 @@
       = f.label 'Speaker', nil, class: 'control-label'
       = f.text_field :speaker, {class: 'form-control'}
     .form-group
+      = f.label 'Scripture', nil, class: 'control-label'
+      = f.text_field :verses, {class: 'form-control'}
+    .form-group
       = f.label 'Audio', nil, class: 'control-label'
       = audio_tag @sermon.audio_file.url, controls: true, class: 'sermon-audio', preload: 'metadata'
     .form-group

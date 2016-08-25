@@ -11,7 +11,7 @@ class SermonsController < ApplicationController
     @all_years.map!(&:year).uniq!
 
     search_params = params.select do |key, _|
-      [:title, :speaker, :year, :month].include?(key.to_sym)
+      [:title, :speaker, :verses, :year, :month].include?(key.to_sym)
     end
 
     if search_params.any?
@@ -68,7 +68,7 @@ class SermonsController < ApplicationController
   end
 
   def sermon_params
-    params.require(:sermon).permit(:id, :title, :speaker, :date, :audio_file)
+    params.require(:sermon).permit(:id, :title, :speaker, :verses, :date, :audio_file)
   end
 
   # TODO: This function is redudant with same function in newsletter controller. Combine these.

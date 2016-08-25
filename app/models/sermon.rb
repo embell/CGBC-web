@@ -36,6 +36,29 @@ class Sermon < ActiveRecord::Base
       end
     end
 
+    matches = matches.to_a
+    
+    if params[:verses] && !params[:verses].empty?
+      matches.keep_if do |match|
+        next if match.verses.nil?
+
+        searched_verse = get_pericope(params[:verses])
+        if searched_verse.nil?
+          matches = []
+          break
+        end
+
+        sermon_verses = Pericope.parse(match.verses)
+
+        found = false
+        sermon_verses.each do |s| 
+          found = true if searched_verse.intersects?(s) 
+        end
+
+        found
+      end
+    end
+
     matches
   end
 
@@ -49,6 +72,19 @@ class Sermon < ActiveRecord::Base
 
   def year
     date.year
+  end
+
+  # Go from a string to a Pericope. Using this method, can interpret book names alone as Pericopes.
+  def self.get_pericope(verse_string)
+    pericope = Pericope.new(verse_string)  
+  rescue RuntimeError
+    begin
+      pericope = Pericope.new(verse_string + " 1")
+      book_count = pericope.book_chapter_count
+      pericope = Pericope.new(verse_string + " 1-#{book_count}")
+    rescue RuntimeError
+      nil 
+    end
   end
 
   # When comparing, use date to determine order

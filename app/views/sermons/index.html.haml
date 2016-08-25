@@ -10,6 +10,9 @@
       %h3 Search
       = form_tag '/sermons', method: 'GET', id: 'sermon-search-form' do
         .form-group
+          = label_tag :verses, 'Scripture'
+          = text_field_tag :verses, params[:verses], class: 'form-control' 
+        .form-group
           = label_tag :title, 'Title'
           = text_field_tag :title, params[:title], class: 'form-control' 
         .form-group
@@ -44,6 +47,11 @@
           - ['speaker', 'date'].each do |info|
             .sermon-info-chunk
               ="#{info.capitalize}: " + eval("s.#{info}.to_s")
+          - unless s.verses.nil?
+            - verses = Pericope.parse(s.verses)
+            - verses.each do |verse|
+              .sermon-info-chunk
+                = verse
               
         .sermon-audio-container
           = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio', preload: 'metadata'
