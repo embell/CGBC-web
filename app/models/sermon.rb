@@ -5,7 +5,13 @@ class Sermon < ActiveRecord::Base
   validates_presence_of :date
   validates_presence_of :audio_file
 
+  before_validation :check_verses
+
   mount_uploader :audio_file, SermonUploader
+
+  def check_verses
+    self.verses = nil if self.verses && Pericope.parse(self.verses).empty?
+  end
 
   def self.search(params)
     # Start with everything, narrow down based on params
