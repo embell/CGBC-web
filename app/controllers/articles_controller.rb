@@ -2,6 +2,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :validate_permission, only: [:create, :edit, :update, :destroy]
+
   def index
     @title = 'Articles'
     @all_articles = Article.all
