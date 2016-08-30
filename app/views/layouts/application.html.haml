@@ -42,6 +42,7 @@
       .center.clearfix
         - flash.each do |key, value|
           - key = 'danger' if key == 'error'
+          - key = 'info' if key == 'notice'
           .alert.alert-dismissable{:class => 'alert-' + key.to_s}
             = safe_join(Array(value), '<br>'.html_safe)
             %button.close{:type => 'button', :data => {:dismiss => 'alert'}}
