@@ -1,11 +1,10 @@
-.pull-left
+#admin-header
   %h1 Admin Page
-- if user_signed_in?
-  .pull-right
-    .section
-      = link_to('Logout', destroy_user_session_path, :method => :delete)
-.clearfix
+  - if user_signed_in?
+    = link_to(destroy_user_session_path, method: :delete, class: 'button-cell interactive-element') do
+      Logout
 %hr
+
 - if @show_newsletter_fields 
   .row
     .col-md-8

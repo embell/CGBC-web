@@ -17,6 +17,7 @@
 @import "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css";
 
 @import 'home';
+@import 'admin';
 @import 'sermons';
 @import 'articles';
 @import 'newsletter';
@@ -147,13 +148,16 @@ h2 {
     
     a {
       @extend .interactive-element;
-      display: block;
-      font-size: 14px;
-      padding: 10px;
-
-      border-radius: 4px;
+      @extend .button-cell;
     }
   }
+}
+
+.button-cell {
+  display: block;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .interactive-element {
@@ -163,6 +167,7 @@ h2 {
   color: #EEEEEE;
 
   &:hover {
+    text-decoration: none;
     background: #555555;  
     color: #FFFFFF;
     transition: 0.5s;
