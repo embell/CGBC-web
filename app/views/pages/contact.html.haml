@@ -26,12 +26,15 @@
       %h3 Website Issues?
       = form_tag('send_contact_mail') do
         .form-group
-          = text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name'
+          = label_tag 'name', 'Your Name', class: 'control-label'
+          = text_field_tag 'name', nil, class: 'form-control'
         .form-group
-          = text_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email'
+          = label_tag 'email', 'Your Email', class: 'control-label'
+          = text_field_tag 'email', nil, class: 'form-control'
         .form-group
+          = label_tag 'message', 'Message', class: 'control-label'
           = text_area_tag 'comments', nil, rows: 4, class: 'form-control',
-                          placeholder: 'Suggestions, corrections, comments, bugs, or questions'
+                          placeholder: 'Suggestions, corrections, comments, bugs, feedback, or questions'
         = button_tag 'Send', class: 'btn btn-primary'
 
   .col-md-8
