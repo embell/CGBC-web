@@ -40,11 +40,13 @@
 
     .container
       .center.clearfix
-        - flash.each do |key, value|
-          - key = 'danger' if key == 'error'
-          - key = 'info' if key == 'notice'
-          .alert.alert-dismissable{:class => 'alert-' + key.to_s}
-            = safe_join(Array(value), '<br>'.html_safe)
+        - flash.each do |msg_type, message|
+          - next if msg_type == 'timedout'
+          - msg_type = 'info' if msg_type == 'notice'
+          - msg_type = 'danger' if msg_type == 'error'
+          - msg_type = 'warning' if msg_type == 'alert'
+          .alert.alert-dismissable{:class => 'alert-' + msg_type.to_s}
+            = safe_join(Array(message), '<br>'.html_safe)
             %button.close{:type => 'button', :data => {:dismiss => 'alert'}}
               &times; 
         = content_for?(:content) ? yield(:content) : yield
