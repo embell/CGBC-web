@@ -21,13 +21,15 @@
       .col-md-12.col-sm-6
         .section
           %h1 Stay Current
-          .btn.btn-info.clearfix.center-block
-            %span.glyphicon.glyphicon-file(style='font-size: 2em;')
-            %p#news-label
-              Most Recent Newsletter
-          - if Sermon.first
+          - if @last_newsletter
+            = link_to @last_newsletter.document.url do
+              .btn.btn-primary#newsletter-btn-home
+                %span.glyphicon.glyphicon-file(style='font-size: 1.7em;')
+                %p#news-label
+                  Most Recent Newsletter
+          - if @last_sermon
             .sermon-audio-container
-              = audio_tag Sermon.first.audio_file.url, controls: true, class: 'sermon-audio'
+              = audio_tag @last_sermon.audio_file.url, controls: true, class: 'sermon-audio'
 
 .row
   .col-md-12
