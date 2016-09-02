@@ -38,6 +38,9 @@ class SermonsController < ApplicationController
 
     if @sermon.save
       redirect_to '/sermons'
+      ChangeLog.write("==== New Sermon created ====
+                       created by: #{current_user.email}
+                       sermon id: #{@sermon.id}, title: #{@sermon.title}")
     else
       flash[:error] = 'Sermon cannot be created: '
       @sermon.errors.full_messages.each do |err|
@@ -55,6 +58,10 @@ class SermonsController < ApplicationController
     @sermon = Sermon.find(params[:id])    
     @sermon.update(sermon_params)
     redirect_to '/sermons'
+
+    ChangeLog.write("==== Sermon updated ====
+                       changed by: #{current_user.email}
+                       sermon id: #{@sermon.id}, title: #{@sermon.title}")
   end
 
   def destroy
@@ -65,6 +72,10 @@ class SermonsController < ApplicationController
 
     flash[:success] = "Deleted sermon '#{deleted_title}'."
     redirect_to '/admin'
+
+    ChangeLog.write("==== Sermon DELETED ====
+                       removed by: #{current_user.email}
+                       sermon id: #{params[:id]}, title: #{deleted_title}")
   end
 
   def sermon_params

@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
 
     if @article.save
       redirect_to '/articles'
+      ChangeLog.write("==== New Article created ====
+                       created by: #{current_user.email}
+                       article id: #{@article.id}, title: #{@article.title}")
     else
       flash[:error] = 'Article entry invalid: '
       @article.errors.full_messages.each do |err|
@@ -30,6 +33,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.update(article_params)
     redirect_to '/articles'
+    
+    ChangeLog.write("==== Article updated ====
+                       changed by: #{current_user.email}
+                       article id: #{@article.id}, title: #{@article.title}")
   end
 
   def destroy
@@ -39,6 +46,10 @@ class ArticlesController < ApplicationController
 
     flash[:success] = "Deleted article '#{deleted_title}'."
     redirect_to '/admin'
+
+    ChangeLog.write("==== Article DELETED ====
+                       removed by: #{current_user.email}
+                       article id: #{params[:id]}, title: #{deleted_title}")
   end
 
   def article_params

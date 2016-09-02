@@ -21,6 +21,9 @@ class NewslettersController < ApplicationController
 
     if @newsletter.save
       redirect_to '/newsletters'
+      ChangeLog.write("==== New Newsletter created ====
+                       created by: #{current_user.email}
+                       newsletter id: #{@newsletter.id}, name: #{@newsletter.name}")
     else
       flash[:error] = 'Newsletter entry invalid: '
       @newsletter.errors.full_messages.each do |err|
@@ -38,6 +41,10 @@ class NewslettersController < ApplicationController
     @newsletter = Newsletter.find(params[:id])
     @newsletter.update(newsletter_params)
     redirect_to '/newsletters'
+
+    ChangeLog.write("==== Newsletter updated ====
+                       changed by: #{current_user.email}
+                       newsletter id: #{@newsletter.id}, name: #{@newsletter.name}")
   end
 
   def newsletter_params
@@ -51,6 +58,10 @@ class NewslettersController < ApplicationController
 
     flash[:success] = "Deleted newsletter '#{deleted_name}'."
     redirect_to '/admin'
+    
+    ChangeLog.write("==== Newsletter DELETED ====
+                       removed by: #{current_user.email}
+                       id: #{params[:id]}, name: #{deleted_name}")
   end
 
   def validate_permission
