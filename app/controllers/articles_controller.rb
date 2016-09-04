@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
       redirect_to '/articles'
       ChangeLog.write("==== New Article created ====
                        created by: #{current_user.email}
-                       article id: #{@article.id}, title: #{@article.title}")
+                       #{@article.inspect}\n")
     else
       flash[:error] = 'Article entry invalid: '
       @article.errors.full_messages.each do |err|
@@ -36,12 +36,14 @@ class ArticlesController < ApplicationController
     
     ChangeLog.write("==== Article updated ====
                        changed by: #{current_user.email}
-                       article id: #{@article.id}, title: #{@article.title}")
+                       #{@article.inspect}\n")
   end
 
   def destroy
     a = Article.find(params[:id])
     deleted_title = a.title
+    deleted_info = a.inspect
+
     a.destroy
 
     flash[:success] = "Deleted article '#{deleted_title}'."
@@ -49,7 +51,7 @@ class ArticlesController < ApplicationController
 
     ChangeLog.write("==== Article DELETED ====
                        removed by: #{current_user.email}
-                       article id: #{params[:id]}, title: #{deleted_title}")
+                       #{deleted_info}\n")
   end
 
   def article_params
