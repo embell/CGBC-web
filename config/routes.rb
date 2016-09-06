@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   get 'index', to: 'pages#home'
 
+  get 'beliefs', to: 'pages#beliefs'
+
   get 'history', to: 'pages#history'
 
   get 'contact', to: 'pages#contact'
