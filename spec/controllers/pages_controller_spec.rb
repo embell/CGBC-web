@@ -21,4 +21,11 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to render_template :contact
     end
   end
+
+  describe 'GET #beliefs' do
+    it 'renders the Beliefs view' do
+      get :beliefs
+      expect(response).to render_template :beliefs
+    end
+  end
 end
