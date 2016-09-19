@@ -5,15 +5,11 @@
 }
 
 #welcome-box {
-  padding: 3% 9%;
-
-  #greeting {
-    font-size: 40pt;
-  }
-
+  padding-left: 6%;
+  padding-right: 6%;
   p {
     text-align: justify;
-    font-size: 18pt;  
+    font-size: 13pt;  
   }
 }
 
@@ -22,15 +18,9 @@
   padding-bottom: 20px;
 }
 
-#news-label {
-  font-size: 20px;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-#newsletter-btn-home {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+#event-section {
+  background-image: url('calendar2.png');
+  background-repeat: no-repeat;
+  background-position: 80% 40%;
+  background-size: 60%;
 }

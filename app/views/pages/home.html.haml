@@ -1,5 +1,5 @@
 .row
-  .col-md-8.col-sm-12
+  .col-md-8
     .section#carousel-section
       .center
         .carousel.slide#myCarousel{:data => {:ride => 'carousel'}}
@@ -14,28 +14,11 @@
               = image_tag "bear.jpg", class: "image-responsive center-block"
             .item
               = image_tag "church3.jpg", class: "image-responsive center-block"
-  .col-md-4.col-sm-12
-    .row
-      .col-md-12.col-sm-6
-        = render "service_times"
-      .col-md-12.col-sm-6
-        .section
-          %h1 Stay Current
-          - if @last_newsletter
-            = link_to @last_newsletter.document.url do
-              .btn.btn-primary#newsletter-btn-home
-                %span.glyphicon.glyphicon-file(style='font-size: 1.7em;')
-                %p#news-label
-                  Most Recent Newsletter
-          - if @last_sermon
-            .sermon-audio-container
-              = audio_tag @last_sermon.audio_file.url, controls: true, class: 'sermon-audio'
 
-.row
-  .col-md-12
+  .col-md-4
     .section#welcome-box
       .text-center
-        %h3#greeting Welcome!
+        %h3 Welcome!
       %p
         Cedar Grove is a Southern Baptist Church with a passion
         for God and His truth. We seek to proclaim God's Word in
@@ -48,10 +31,16 @@
         for all the details.
 
 .row
-  .col-md-4.col-xs-12
-    .section
+  .col-md-4.col-sm-12
+    = render "service_times"
+
+    - if @last_sermon
+      = render 'sermons/most_recent'
+
+  .col-md-4.col-sm-12
+    .section#event-section
       %h1 Events 
-      = image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
+      -#= image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
       -# if Event.upcoming.any?
       %p
         Here are a few of our upcoming events:
@@ -67,7 +56,6 @@
             %td Sep 22
             %td Event 3
 
-  .col-md-4.col-xs-12
     .section
       %h1 Pastor's Message
       = image_tag "books.png", class: "image-responsive center-block", size: "100x100"
@@ -76,7 +64,10 @@
         = link_to "Click here", "articles"
         to read them all!
 
-  .col-md-4.col-xs-12
+  .col-md-4.col-sm-12
+    - if @last_newsletter
+      = render 'newsletters/most_recent'
+
     .section
       %h1 Children's Corner 
       = image_tag "puzzle.png", class: "image-responsive center-block", size: "100x100"

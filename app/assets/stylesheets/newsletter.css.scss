@@ -45,3 +45,23 @@
   text-decoration: none;
   &:hover, &:focus {text-decoration: none;}
 }
+
+#news-label {
+  font-size: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#newsletter-btn-home {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  span {
+    padding-right: 0.5em;
+    font-size: 1.5em;
+  }
+
+  margin-bottom: 10px;
+}
