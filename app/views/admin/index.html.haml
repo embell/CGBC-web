@@ -25,3 +25,10 @@
       = render 'articles/new'
     .col-md-4
       = render 'articles/select_for_edit'
+
+- if @show_event_fields
+  .row
+    .col-md-8
+      = render 'events/new'
+    .col-md-4
+      = render 'events/select_for_edit'

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get 'articles/edit', to: 'articles#edit'
   resources :articles, only: [:index, :create, :destroy, :update]
 
+  get 'events/edit', to: 'events#edit'
+  resources :events, only: [:index, :create, :destroy, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

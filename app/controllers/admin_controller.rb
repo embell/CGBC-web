@@ -20,5 +20,10 @@ class AdminController < ApplicationController
       @show_article_fields = true
       @all_articles = Article.all.sort.reverse.map { |a| [a.title, a.id] }
     end
+
+    if user.permissions.include?(:events)
+      @show_event_fields = true
+      @all_events = Event.all.sort.reverse.map { |a| [a.name, a.id] }
+    end
   end
 end

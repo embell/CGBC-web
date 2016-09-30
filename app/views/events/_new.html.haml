@@ -1,0 +1,16 @@
+.section
+  %h1 Add Event
+  - @event ||= Event.new
+  = form_for @event, url: {action: 'create', controller: 'events'} do |f|
+    .form-group
+      = f.label 'Name', nil, class: 'control-label'
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      = f.label 'Date', nil, class: 'control-label'
+      .form-group
+        = f.date_select :date, {}, {class: 'form-control date-select'}
+        .clearfix
+    .form-group
+      = f.label 'Description', nil, class: 'control-label'
+      = f.text_area :description, rows: 4, class: 'form-control'
+    = f.submit 'Add', class: 'btn btn-primary'
