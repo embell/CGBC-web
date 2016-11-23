@@ -4,7 +4,7 @@
   = form_for @newsletter, url: {action: 'create', controller: 'newsletters'} do |f|
     .form-group
       = f.label 'File', nil, class: 'control-label'
-      = f.file_field :document, class: 'form-control'
+      = f.file_field :document, class: 'form-control', required: true
     .form-group
       = f.label 'Date', nil, class: 'control-label'
       .form-group

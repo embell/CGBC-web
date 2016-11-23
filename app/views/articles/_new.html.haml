@@ -4,12 +4,12 @@
   = form_for @article, url: {action: 'create', controller: 'articles'} do |f|
     .form-group
       = f.label 'Title', nil, class: 'control-label'
-      = f.text_field :title, class: 'form-control'
+      = f.text_field :title, class: 'form-control', required: true
     .form-group
       = f.label 'Author', nil, class: 'control-label'
       = f.text_field :author, class: 'form-control'
     .form-group
       = f.label 'Text', nil, class: 'control-label'
-      = f.text_area :text, rows: 14, class: 'form-control'
+      = f.text_area :text, rows: 14, class: 'form-control', required: true
     .clearfix
     = f.submit 'Add', class: 'btn btn-primary'
