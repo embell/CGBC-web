@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get 'newsletter', to: 'newsletters#index'
 
   get 'sermons/edit', to: 'sermons#edit'
-  resources :sermons, only: [:index, :create, :destroy, :update]
+  # get 'sermons/:id', to: 'sermons#show'
+  resources :sermons, only: [:index, :show, :create, :destroy, :update]
 
   get 'articles/edit', to: 'articles#edit'
   resources :articles, only: [:index, :create, :destroy, :update]

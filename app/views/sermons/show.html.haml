@@ -1,0 +1,14 @@
+.section
+  %h2.centered-with-lines= @sermon.title
+  .sermon-info
+    - ['speaker', 'date'].each do |info|
+      .sermon-info-chunk
+        ="#{info.capitalize}: " + eval("@sermon.#{info}.to_s")
+    - unless @sermon.verses.nil?
+      - verses = Pericope.parse(@sermon.verses)
+      - verses.each do |verse|
+        .sermon-info-chunk
+          = verse
+        
+  .sermon-audio-container
+    = audio_tag @sermon.audio_file.url, controls: true, class: 'sermon-audio', preload: 'metadata'

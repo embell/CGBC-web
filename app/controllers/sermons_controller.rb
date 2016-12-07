@@ -53,6 +53,10 @@ class SermonsController < ApplicationController
   def edit
     @sermon = Sermon.find(sermon_params[:id])
   end
+  
+  def show
+    @sermon = Sermon.find(params[:id])
+  end
 
   def update
     @sermon = Sermon.find(params[:id])    
