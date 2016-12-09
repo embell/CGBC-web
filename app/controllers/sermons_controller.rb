@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 # Controller for sermons.
 class SermonsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
@@ -30,7 +32,7 @@ class SermonsController < ApplicationController
     end
 
     # Show newest Sermons first
-    @sermons = @sermons.sort.reverse
+    @sermons = @sermons.sort.reverse.paginate(page: params[:page], per_page: 1)
   end
 
   def create
@@ -56,6 +58,7 @@ class SermonsController < ApplicationController
   
   def show
     @sermon = Sermon.find(params[:id])
+    render '_show'
   end
 
   def update

@@ -40,18 +40,12 @@
         %p 
           Looks like there's nothing here. Stay tuned for more. If you made it 
           here by searching, modify your criteria and try again. 
-    - @sermons.each do |s|
+
+    - if will_paginate @sermons
       .section
-        %h2.centered-with-lines= s.title
-        .sermon-info
-          - ['speaker', 'date'].each do |info|
-            .sermon-info-chunk
-              ="#{info.capitalize}: " + eval("s.#{info}.to_s")
-          - unless s.verses.nil?
-            - verses = Pericope.parse(s.verses)
-            - verses.each do |verse|
-              .sermon-info-chunk
-                = verse
-              
-        .sermon-audio-container
-          = audio_tag s.audio_file.url, controls: true, class: 'sermon-audio', preload: 'metadata'
+        = will_paginate @sermons
+
+    - @sermons.each do |s|
+      - @sermon = s
+      = render 'show'
+

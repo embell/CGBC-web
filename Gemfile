@@ -70,5 +70,6 @@ gem 'haml'
 gem 'devise', '~> 3.5'
 gem 'carrierwave'
 gem 'pericope'
+gem 'will_paginate'
 
 gem 'tzinfo-data'
