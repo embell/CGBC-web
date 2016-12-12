@@ -41,11 +41,23 @@
           Looks like there's nothing here. Stay tuned for more. If you made it 
           here by searching, modify your criteria and try again. 
 
-    - if will_paginate @sermons
-      .section
-        = will_paginate @sermons
+    - if @sermons.total_pages > 1
+      .section.pagination-controls
+        .pull-left
+          = page_entries_info @sermons
+        .pull-right
+          = will_paginate @sermons
+        .clearfix
 
     - @sermons.each do |s|
       - @sermon = s
       = render 'show'
+
+    - if @sermons.total_pages > 1
+      .section.pagination-controls
+        .pull-left
+          = page_entries_info @sermons
+        .pull-right
+          = will_paginate @sermons
+        .clearfix
 
