@@ -32,7 +32,7 @@ class SermonsController < ApplicationController
     end
 
     # Show newest Sermons first
-    @sermons = @sermons.sort.reverse.paginate(page: params[:page], per_page: 1)
+    @sermons = @sermons.sort.reverse.paginate(page: params[:page], per_page: 10)
   end
 
   def create
