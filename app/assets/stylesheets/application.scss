@@ -184,14 +184,25 @@ h2 {
     * {
       padding-left: 5px;
       padding-right: 5px;
+      font-size: 110%;
+    }
+
+    .current {
+      font-weight: bold;
     }
 
     .previous_page {
       padding-left: 0;
+      border: none;
+      border-right: 1px solid #888888;
+      font-size: 100%;
     }
 
     .next_page {
       padding-right: 0;
+      border: none;
+      border-left: 1px solid #888888;
+      font-size: 100%;
     }
 
     .disabled {
