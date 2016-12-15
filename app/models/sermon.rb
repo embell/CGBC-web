@@ -80,6 +80,10 @@ class Sermon < ActiveRecord::Base
     date.year
   end
 
+  def date_string
+    date.strftime('%b %e, %Y')
+  end
+
   # Go from a string to a Pericope. Using this method, can interpret book names alone as Pericopes.
   def self.get_pericope(verse_string)
     pericope = Pericope.new(verse_string)  
