@@ -2,9 +2,11 @@
 %html.full-bg
   %head 
     %title= get_page_title(@title)
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
 
     /
       [if lt IE 9]>
@@ -31,7 +33,7 @@
               %li= link_to 'Admin',     admin_path
             %li= link_to 'Beliefs',     beliefs_path
             %li= link_to 'Sermons',     sermons_path
-            %li= link_to 'Articles',    articles_path 
+            -#%li= link_to 'Articles',    articles_path 
             %li= link_to 'Newsletter',  newsletters_path
             %li= link_to 'History',     history_path
             %li= link_to 'Contact',     contact_path
@@ -54,7 +56,7 @@
     %footer
       .container
         %hr
-        Copyright CGBC 2016
+        Copyright CGBC 2016-2017
         .pull-right
           -#= link_to image_tag("youtube.png", class: "icon"), '#'
           = link_to image_tag("facebook.png", class: "icon"), 'https://www.facebook.com/CedarGroveBaptistAsheboro/'
