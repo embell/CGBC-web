@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

@@ -1,10 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Sermon, type: :model do
-  FactoryGirl.create(:sermon, :speaker_marty)
-  FactoryGirl.create(:sermon, :title_test_sermon)
   
   describe "self.search" do
+    before(:each) do
+      FactoryGirl.create(:sermon, :speaker_marty)
+      FactoryGirl.create(:sermon, :title_test_sermon)
+      FactoryGirl.create(:sermon, :oct312018)
+      FactoryGirl.create(:sermon, :aug202017)
+    end
+
     it "finds correct results by title" do
       results = Sermon.search({ title: "Test" })
       expect(results.count).to eq(1)
@@ -20,9 +25,24 @@ RSpec.describe Sermon, type: :model do
         expect(r.speaker).to include("Marty")
       end
     end
+
+    it "finds correct results by year" do
+      results = Sermon.search({ year: "2018" })
+      expect(results.count).to eq(1)
+      results.each do |r|
+        expect(r.date.year).to eq(2018)
+      end
+    end
+    
+    it "finds correct results by month" do
+      results = Sermon.search({ month: "8" })
+      expect(results.count).to eq(1)
+      results.each do |r|
+        expect(r.date.month).to eq(8)
+      end
+    end
   end
 
-  pending "Sermons search should find all sermons by year" 
-  pending "Sermons search should find all sermons by month" 
-  pending "Sermons search should find all sermons when combining all criteria" 
+  pending "Sermons search should find all sermons when combining criteria" 
+  pending "Sermons search should find all sermons by verse" 
 end

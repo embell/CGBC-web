@@ -37,7 +37,7 @@ class Sermon < ActiveRecord::Base
       month = params[:month]
       if ENV['RAILS_ENV'] == 'production'
         matches = matches.where('extract(month FROM date) = ?', month)
-      elsif ENV['RAILS_ENV'] == 'development'
+      elsif ENV['RAILS_ENV'] == 'development' || ENV['RAILS_ENV'] == 'test'
         matches = matches.where("cast(strftime('%m', date) as int) = ?", month)
       end
     end
