@@ -24,16 +24,17 @@
 @import 'contact';
 @import 'mixins';
 
+html, body {
+  min-width: 480px;
+  width: auto;
+}
+
 .full-bg {
   @include full-image-bg("sky2.jpg");
 }
 
 body {
   background: inherit;
-}
-
-.container {
-  min-width: 480px;
 }
 
 .section {
