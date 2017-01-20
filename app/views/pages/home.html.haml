@@ -30,7 +30,7 @@
         = link_to 'beliefs page', beliefs_path
         for all the details.
 
-.row
+.row#homepage-multi-column
   .col-md-4.col-xs-6
     = render "service_times"
 
@@ -110,3 +110,47 @@
           Working with the children is one of our most important ministries. We 
           have classes just for the kids every Sunday and Wednesday, so be sure 
           to bring the whole family.
+
+#homepage-one-column 
+  = render "service_times"
+
+  - if @last_sermon
+    = render 'sermons/most_recent'
+
+  .section#event-section
+    %h1 Events 
+    -#= image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
+    -# if Event.upcoming.any?
+    %p
+      Here are a few of our upcoming events:
+    %table.table.table-condensed  
+      %tbody
+        %tr
+          %td Aug 15
+          %td Event 1
+        %tr
+          %td Sep 16
+          %td Event 2
+        %tr
+          %td Sep 22
+          %td Event 3
+   
+  .hidden-md.hidden-lg
+    .section
+      %h1 Children's Corner 
+      = image_tag "puzzle.png", class: "image-responsive center-block", size: "100x100"
+      %p
+        Working with the children is one of our most important ministries. We 
+        have classes just for the kids every Sunday and Wednesday, so be sure 
+        to bring the whole family.
+
+  - if @last_newsletter
+    = render 'newsletters/most_recent'
+
+  .section
+    %h1 Pastor's Message
+    = image_tag "books.png", class: "image-responsive center-block", size: "100x100"
+    %p
+      Pastor Marty has put together some short essays to share with the world. 
+      = link_to "Click here", "articles"
+      to read them all!

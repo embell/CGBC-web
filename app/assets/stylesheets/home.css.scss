@@ -12,6 +12,12 @@
   padding-bottom: 20px;
 }
 
+@media (max-width: 479px) {
+  #carousel-section {
+    display: none; 
+  }
+}
+
 .item {
   img {
     width: 100%;
@@ -23,4 +29,16 @@
   background-repeat: no-repeat;
   background-position: 80% 40%;
   background-size: 60%;
+}
+
+@media (min-width: 480px) {
+  #homepage-one-column {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  #homepage-multi-column {
+    display: none;
+  }
 }
