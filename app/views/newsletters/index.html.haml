@@ -1,7 +1,7 @@
 .row
-  .col-md-3
+  .col-sm-3
     .section
-      %h1 Newsletter  
+      %h1 News&shy;letter  
 
       %p
         This newsletter is a montly overview of the things going on at church. 
@@ -12,7 +12,7 @@
         - @news_by_year.keys.each do |year|
           %li= link_to year, "##{year}", class: "gotoYear"
   - first_year = @news_by_year.keys.first
-  .col-md-9
+  .col-sm-9
     #accordion
       - @news_by_year.each do |year, newsletters| 
         = render partial: 'show_by_year', locals: {year: year, newsletters: newsletters, first_year: first_year}
