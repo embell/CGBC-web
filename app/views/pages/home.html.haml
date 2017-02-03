@@ -34,23 +34,8 @@
   .col-md-4.col-xs-6
     = render "service_times"
 
-    .section#event-section.hidden-md.hidden-lg
-      %h1 Events 
-      -#= image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
-      -# if Event.upcoming.any?
-      %p
-        Here are a few of our upcoming events:
-      %table.table.table-condensed  
-        %tbody
-          %tr
-            %td Aug 15
-            %td Event 1
-          %tr
-            %td Sep 16
-            %td Event 2
-          %tr
-            %td Sep 22
-            %td Event 3
+    .hidden-md.hidden-lg
+      = render 'events/summary'
 
     .section
       %h1 Pastor's Message
@@ -69,23 +54,8 @@
       - if @last_newsletter
         = render 'newsletters/most_recent'
 
-    .section#event-section.hidden-sm.hidden-xs
-      %h1 Events 
-      -#= image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
-      -# if Event.upcoming.any?
-      %p
-        Here are a few of our upcoming events:
-      %table.table.table-condensed  
-        %tbody
-          %tr
-            %td Aug 15
-            %td Event 1
-          %tr
-            %td Sep 16
-            %td Event 2
-          %tr
-            %td Sep 22
-            %td Event 3
+    .hidden-sm.hidden-xs
+      = render 'events/summary'
   
     .section
       %h1 Children's Corner 
@@ -117,23 +87,7 @@
   - if @last_sermon
     = render 'sermons/most_recent'
 
-  .section#event-section
-    %h1 Events 
-    -#= image_tag "calendar.png", class: "image-responsive center-block", size: "100x100"
-    -# if Event.upcoming.any?
-    %p
-      Here are a few of our upcoming events:
-    %table.table.table-condensed  
-      %tbody
-        %tr
-          %td Aug 15
-          %td Event 1
-        %tr
-          %td Sep 16
-          %td Event 2
-        %tr
-          %td Sep 22
-          %td Event 3
+  = render 'events/summary'
    
   .hidden-md.hidden-lg
     .section
