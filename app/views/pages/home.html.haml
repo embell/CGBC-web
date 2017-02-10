@@ -51,13 +51,7 @@
     .hidden-sm.hidden-xs
       = render 'events/summary'
   
-    .section
-      %h1 Children's Corner 
-      = image_tag "puzzle.png", class: "image-responsive center-block", size: "100x100"
-      %p
-        Working with the children is one of our most important ministries. We 
-        have classes just for the kids every Sunday and Wednesday, so be sure 
-        to bring the whole family.
+    = render 'children'
 
   .col-md-4.hidden-sm.hidden-xs
     - if @last_sermon
@@ -67,14 +61,8 @@
       = render 'newsletters/most_recent'
 
     .hidden-md.hidden-lg
-      .section
-        %h1 Children's Corner 
-        = image_tag "puzzle.png", class: "image-responsive center-block", size: "100x100"
-        %p
-          Working with the children is one of our most important ministries. We 
-          have classes just for the kids every Sunday and Wednesday, so be sure 
-          to bring the whole family.
-
+      = render 'children'
+      
 #homepage-one-column 
   = render "service_times"
 
@@ -83,14 +71,7 @@
 
   = render 'events/summary'
    
-  .hidden-md.hidden-lg
-    .section
-      %h1 Children's Corner 
-      = image_tag "puzzle.png", class: "image-responsive center-block", size: "100x100"
-      %p
-        Working with the children is one of our most important ministries. We 
-        have classes just for the kids every Sunday and Wednesday, so be sure 
-        to bring the whole family.
+  = render 'children'
 
   - if @last_newsletter
     = render 'newsletters/most_recent'
