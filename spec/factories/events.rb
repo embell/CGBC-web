@@ -15,4 +15,9 @@ FactoryGirl.define do
     date {100.days.ago}
     time {100.days.ago}
   end
+
+  trait :last_week do
+    date {5.days.ago}
+    time {5.days.ago}
+  end
 end
