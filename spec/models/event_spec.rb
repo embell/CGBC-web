@@ -5,6 +5,8 @@ RSpec.describe Event, type: :model do
     FactoryGirl.create(:event, :past)
     FactoryGirl.create(:event, :future)
     FactoryGirl.create(:event, :past)
+    FactoryGirl.create(:event, :last_week)
+    FactoryGirl.create(:event, :past)
   end
 
   describe "self.recent_and_upcoming" do
