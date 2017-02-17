@@ -1,16 +1,9 @@
--# if Event.upcoming.any?
-.section#event-section
-  %h1 Events
-  %p
-    Here are a few of our upcoming events:
-  %table.table.table-condensed
-    %tbody
-      %tr
-        %td Aug 15
-        %td Event 1
-      %tr
-        %td Sep 15
-        %td Event 2
-      %tr
-        %td Oct 15
-        %td Event 3
+- if Event.upcoming.any?
+  .section#event-section
+    %h1 Events
+    %table.table.table-condensed
+      %tbody
+      - Event.upcoming.each do |e|
+        %tr
+          %td= e.date
+          %td= e.name

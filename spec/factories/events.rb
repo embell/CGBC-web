@@ -20,4 +20,14 @@ FactoryGirl.define do
     date {5.days.ago}
     time {5.days.ago}
   end
+
+  trait :today do
+    date {Date.today}
+    time {Date.today}
+  end
+
+  trait :yesterday do
+    date {Date.yesterday}
+    time {Date.yesterday}
+  end
 end
