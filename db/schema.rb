@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927153053) do
+ActiveRecord::Schema.define(version: 20170302182956) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -24,11 +24,13 @@ ActiveRecord::Schema.define(version: 20160927153053) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.date     "date"
-    t.time     "time"
+    t.date     "start_date"
+    t.time     "start_time"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "end_date"
+    t.time     "end_time"
   end
 
   create_table "newsletters", force: true do |t|
