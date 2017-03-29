@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def home
     @last_sermon = Sermon.last
     @last_newsletter = Newsletter.last
+    @upcoming_events = Event.upcoming
   end
 
   def history

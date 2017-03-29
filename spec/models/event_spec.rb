@@ -33,4 +33,18 @@ RSpec.describe Event, type: :model do
     end
 
   end
+
+  describe "formatted_start_date" do
+    it "returns start date in MMM DD format" do
+      e = Event.new(start_date: Date.today)
+      expect(e.formatted_start_date).to eq(Date.today.strftime("%b %e"))
+    end
+  end
+
+  describe "formatted_end_date" do
+    it "returns end date in MMM DD format" do
+      e = Event.new(end_date: Date.today)
+      expect(e.formatted_end_date).to eq(Date.today.strftime("%b %e"))
+    end
+  end
 end

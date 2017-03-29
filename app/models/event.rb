@@ -3,4 +3,12 @@ class Event < ActiveRecord::Base
   def self.upcoming
     Event.where("start_date > :today", today: 1.days.ago)
   end
+
+  def formatted_start_date
+    start_date.strftime("%b %e")
+  end
+
+  def formatted_end_date
+    end_date.strftime("%b %e")
+  end
 end

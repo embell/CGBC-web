@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:id, :name, :date, :description)
+    params.require(:event).permit(:id, :name, :start_date, :end_date, :description)
   end
 
   # TODO: This function is redundant with same one in other resource controllers. Figure out where to define it.

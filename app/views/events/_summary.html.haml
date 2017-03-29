@@ -1,9 +1,12 @@
-- if Event.upcoming.any?
+- unless @upcoming_events.blank?
   .section#event-section
     %h1 Events
     %table.table.table-condensed
       %tbody
-      - Event.upcoming.each do |e|
+      - @upcoming_events.each do |event|
         %tr
-          %td= e.start_date
-          %td= e.name
+          - if event.end_date.nil?
+            %td= event.formatted_start_date
+          - else
+            %td= "#{event.formatted_start_date} - #{event.formatted_end_date}"
+          %td= event.name
