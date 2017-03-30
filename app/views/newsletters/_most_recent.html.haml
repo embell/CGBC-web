@@ -1,6 +1,7 @@
 .section
   %h1 Newsletter
-  .btn.btn-primary#newsletter-btn-home
-    %span.glyphicon.glyphicon-file
-    %p#news-label
-      = @last_newsletter.name
+  = link_to @last_newsletter.document.url do
+    .btn.btn-primary#newsletter-btn-home
+      %span.glyphicon.glyphicon-file
+      %p#news-label
+        = @last_newsletter.name
