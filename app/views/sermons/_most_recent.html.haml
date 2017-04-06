@@ -1,7 +1,7 @@
 .section
   %h1 Latest Sermon
   %h3= @last_sermon.title
-  %small= "#{@last_sermon.speaker} - #{@last_sermon.date_string} - #{@last_sermon.verses}"
+  %small= "#{@last_sermon.speaker} - #{@last_sermon.date_string}"
   .sermon-audio-container
     = audio_tag @last_sermon.audio_file.url, controls: true, class: 'sermon-audio'
   %hr
