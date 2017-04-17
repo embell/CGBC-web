@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'home', to: 'pages#home'
   get 'index', to: 'pages#home'
+  get '/.well-known/acme-challenge/:id', to: 'pages#letsencrypt'
 
   get 'beliefs', to: 'pages#beliefs'
 
