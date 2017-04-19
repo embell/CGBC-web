@@ -1,12 +1,25 @@
 - unless @upcoming_events.blank?
   .section#event-section
     %h1 Events
-    %table.table.table-condensed
+    %table.table.table-condensed#event-summary-table
       %tbody
-      - @upcoming_events.each do |event|
+      - @upcoming_events.each_with_index do |event, index|
         %tr
           - if event.end_date.nil?
             %td= event.formatted_start_date
           - else
             %td= "#{event.formatted_start_date} - #{event.formatted_end_date}"
-          %td= event.name
+          %td
+            = event.name
+            - unless event.description.blank?
+              .pull-right
+                .showEventDetailsBtn{data:{toggle: "collapse", target: ".eventDetails#{index}"}}
+                  %span.glyphicon.glyphicon-plus-sign
+              .clearfix
+
+        - unless event.description.blank?
+          %tr.collapse{class: "eventDetails#{index}"}
+            %td.eventDescCell
+            %td.eventDescCell
+              .collapse{class: "eventDetails#{index}"}
+                = event.description
