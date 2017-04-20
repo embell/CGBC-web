@@ -13,13 +13,13 @@
             = event.name
             - unless event.description.blank?
               .pull-right
-                .showEventDetailsBtn{data:{toggle: "collapse", target: ".eventDetails#{index}"}}
+                .show-event-details-btn{data:{target: ".event-details-#{index}"}}
                   %span.glyphicon.glyphicon-plus-sign
               .clearfix
 
         - unless event.description.blank?
-          %tr.collapse{class: "eventDetails#{index}"}
-            %td.eventDescCell
-            %td.eventDescCell
-              .collapse{class: "eventDetails#{index}"}
+          %tr.event-details{class: "event-details-#{index}"}
+            %td.event-desc-cell
+            %td.event-desc-cell
+              .event-details{class: "event-details-#{index}"}
                 = event.description

@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $(".gotoYear").on "click", (event) ->
-    year = $(this).text()
-    $('#collapse' + year).collapse('show')
+  $(document).on "page:change", ->
+    $(".gotoYear").on "click", (event) ->
+      year = $(this).text()
+      $('#collapse' + year).collapse('show')

@@ -9,10 +9,14 @@
   table-layout: fixed;
 }
 
-.eventDescCell {
+.event-desc-cell {
   border-top: 0 !important;
 }
 
-.showEventDetailsBtn {
+.event-details {
+  display: none;
+}
+
+.show-event-details-btn {
   cursor: pointer;
 }
