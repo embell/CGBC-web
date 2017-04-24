@@ -10,12 +10,12 @@ RSpec.describe ApplicationHelper, type: :helper do
 
     it "gets correct page title when given non-truthy input" do
       title = get_page_title(nil)
-      expect(title).to eq("CGBC")
+      expect(title).to eq("Cedar Grove Baptist Church")
     end
 
     it "gets correct page title when given empty input" do
       title = get_page_title("")
-      expect(title).to eq("CGBC")
+      expect(title).to eq("Cedar Grove Baptist Church")
     end
   end
 end
