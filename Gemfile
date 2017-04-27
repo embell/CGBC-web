@@ -38,6 +38,10 @@ group :development do
 end
 
 group :production, :postgresql do
+  gem 'dalli'
+end
+
+group :production, :postgresql do
   gem 'pg'
 end
 
