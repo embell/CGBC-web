@@ -17,7 +17,7 @@ RSpec.describe Event, type: :model do
       results = Event.upcoming()
 
       results.each do |r|
-        expect(r.start_date).to be > Date.yesterday
+        expect(r.start_date).to be > Date.today.advance(days: -1)
       end
     end
 
