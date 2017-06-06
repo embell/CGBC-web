@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
   before(:each) do
     FactoryGirl.create(:event, :past)
+    FactoryGirl.create(:event, :today)
     FactoryGirl.create(:event, :future)
     FactoryGirl.create(:event, :today)
     FactoryGirl.create(:event, :past)
@@ -29,6 +30,14 @@ RSpec.describe Event, type: :model do
 
       events_not_found.each do |e|
         expect(e.start_date).to be < Date.today
+      end
+    end
+
+    it "returns upcoming events sorted by soonest first" do
+      results = Event.upcoming()
+
+      results.slice(0, results.size-1).each_with_index do |r, i|
+        expect(r.start_date).to be <= results[i+1].start_date
       end
     end
 
