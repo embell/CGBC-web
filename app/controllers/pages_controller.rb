@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @upcoming_events = Event.upcoming
   end
 
-  def history
+  def beliefs
     @title = 'Beliefs'
   end
 
