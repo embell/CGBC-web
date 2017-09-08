@@ -38,7 +38,8 @@ group :development do
 end
 
 group :production, :postgresql do
-  gem 'pg'
+  gem 'pg', '~> 0.20'
+  gem 'unicorn'
 end
 
 ### / OpenShift changes
