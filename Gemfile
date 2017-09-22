@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
-### OpenShift Online changes:
-
 # Fix the conflict with the system 'rake':
 gem 'rake', '~> 0.9.6'
 gem 'rack', '1.5.2'
