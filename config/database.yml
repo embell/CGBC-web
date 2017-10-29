@@ -4,11 +4,10 @@ sqlite: &sqlite
 
 postgresql: &postgresql
   adapter: postgresql
-  database: <%=ENV['OPENSHIFT_APP_NAME']%>
-  username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
-  password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
-  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
-  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+  host: localhost
+  database: cgbc
+  username: <%=ENV['CGBC_DB_USER']%>
+  password: <%=ENV['CGBC_DB_PASSWORD']%>
   min_messages: ERROR
   reconnect: false
 
