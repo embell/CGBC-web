@@ -1,6 +1,5 @@
-.section
-  %h1 Edit Event
-  = form_for @event, method: 'get', url: {action: 'edit', controller: 'events'} do |f|
-    .form-group
-      = f.select :id, options_for_select(@all_events), {}, {class: 'form-control'}
-    = f.submit 'Edit', class: 'btn btn-primary'
+%h3 Edit Event
+= form_for @event, method: 'get', url: {action: 'edit', controller: 'events'} do |f|
+  .form-group
+    = f.select :id, options_for_select(@all_events), {}, {class: 'form-control'}
+  = f.submit 'Edit', class: 'btn btn-primary'

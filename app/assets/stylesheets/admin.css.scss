@@ -4,3 +4,36 @@
   justify-content: space-between;
   align-items: center;
 }
+
+#admin-main {
+  border-top-left-radius: 0;
+}
+
+a.tab:focus {
+  color: $main_light;
+  text-decoration: none;
+}
+
+.tab {
+  background: #333333;
+  color: $main_light;
+  opacity: 0.98;
+  box-shadow: inset 0 -10px 5px -8px RGBA(0,0,0,0.5);
+
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: -2px;
+  
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.tab.active {
+  background: $main_dark;
+  color: $main_light;
+  box-shadow: none;
+
+  &:hover {
+    background: $main_dark;
+  }
+}

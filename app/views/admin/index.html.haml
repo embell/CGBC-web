@@ -5,30 +5,45 @@
       Logout
 %hr
 
-- if @show_newsletter_fields 
-  .row
-    .col-md-8
-      = render 'newsletters/new'
-    .col-md-4
-      = render 'newsletters/select_for_edit'
 
 - if @show_sermon_fields
-  .row
-    .col-md-8
-      = render 'sermons/new'
-    .col-md-4
-      = render 'sermons/select_for_edit'
-
-- if @show_article_fields
-  .row
-    .col-md-8
-      = render 'articles/new'
-    .col-md-4
-      = render 'articles/select_for_edit'
-
+  = link_to 'Sermons', '#', class: "tab interactive-element"
 - if @show_event_fields
-  .row
-    .col-md-8
-      = render 'events/new'
-    .col-md-4
-      = render 'events/select_for_edit'
+  = link_to 'Events', '#', class: "tab interactive-element"
+- if @show_newsletter_fields 
+  = link_to 'Newsletters', '#', class: "tab interactive-element"
+- if @show_article_fields
+  = link_to 'Articles', '#', class: "tab interactive-element"
+
+.section#admin-main
+  #sermons-panel.admin-panel.hidden
+    - if @show_sermon_fields
+      .row
+        .col-md-8
+          = render 'sermons/new'
+        .col-md-4
+          = render 'sermons/select_for_edit'
+
+  #newsletters-panel.admin-panel.hidden
+    - if @show_newsletter_fields 
+      .row
+        .col-md-8
+          = render 'newsletters/new'
+        .col-md-4
+          = render 'newsletters/select_for_edit'
+
+  #articles-panel.admin-panel.hidden
+    - if @show_article_fields
+      .row
+        .col-md-8
+          = render 'articles/new'
+        .col-md-4
+          = render 'articles/select_for_edit'
+
+  #events-panel.admin-panel.hidden
+    - if @show_event_fields
+      .row
+        .col-md-8
+          = render 'events/new'
+        .col-md-4
+          = render 'events/select_for_edit'

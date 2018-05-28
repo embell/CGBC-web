@@ -1,7 +1,6 @@
-.section
-  %h1 Edit Newsletter
-  = form_for @newsletter, method: 'get', url: {action: 'edit', controller: 'newsletters'} do |f|
-    .form-group
-      = f.select :id, options_for_select(@all_newsletters), {}, {class: 'form-control'}
-    = f.submit 'Edit', class: 'btn btn-primary'
+%h3 Edit Newsletter
+= form_for @newsletter, method: 'get', url: {action: 'edit', controller: 'newsletters'} do |f|
+  .form-group
+    = f.select :id, options_for_select(@all_newsletters), {}, {class: 'form-control'}
+  = f.submit 'Edit', class: 'btn btn-primary'
 

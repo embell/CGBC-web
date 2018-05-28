@@ -1,23 +1,22 @@
-.section
-  %h1 Add Sermon
-  - @sermon ||= Sermon.new
-  = form_for @sermon, url: {action: 'create', controller: 'sermons'} do |f|
+%h3 Add Sermon
+- @sermon ||= Sermon.new
+= form_for @sermon, url: {action: 'create', controller: 'sermons'} do |f|
+  .form-group
+    = f.label 'Title', nil, class: 'control-label'
+    = f.text_field :title, {class: 'form-control', required: true}
+  .form-group
+    = f.label 'Speaker', nil, class: 'control-label'
+    = f.text_field :speaker, {class: 'form-control', required: true}
+  .form-group
+    = f.label 'Scripture', nil, class: 'control-label'
+    = f.text_field :verses, {class: 'form-control'}
+    .help-block Enter at least a book and chapter. Can include multiple verses and ranges.
+  .form-group
+    = f.label 'File', nil, class: 'control-label'
+    = f.file_field :audio_file, class: 'form-control', required: true
+  .form-group
+    = f.label 'Date', nil, class: 'control-label'
     .form-group
-      = f.label 'Title', nil, class: 'control-label'
-      = f.text_field :title, {class: 'form-control', required: true}
-    .form-group
-      = f.label 'Speaker', nil, class: 'control-label'
-      = f.text_field :speaker, {class: 'form-control', required: true}
-    .form-group
-      = f.label 'Scripture', nil, class: 'control-label'
-      = f.text_field :verses, {class: 'form-control'}
-      .help-block Enter at least a book and chapter. Can include multiple verses and ranges.
-    .form-group
-      = f.label 'File', nil, class: 'control-label'
-      = f.file_field :audio_file, class: 'form-control', required: true
-    .form-group
-      = f.label 'Date', nil, class: 'control-label'
-      .form-group
-        = f.date_select :date, {}, {class: 'form-control date-select'}
-        .clearfix
-    = f.submit 'Add', class: 'btn btn-primary'
+      = f.date_select :date, {}, {class: 'form-control date-select'}
+      .clearfix
+  = f.submit 'Add', class: 'btn btn-primary'
