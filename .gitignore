@@ -9,6 +9,7 @@
 
 # Ignore environment config
 /.rbenv-vars
+/.ruby-version
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
