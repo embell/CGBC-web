@@ -62,7 +62,7 @@ group :doc do
 end
 
 gem 'haml'
-gem 'devise', '~> 3.5'
+gem 'devise', '~> 4.5.0'
 gem 'carrierwave'
 gem 'pericope'
 gem 'will_paginate'
