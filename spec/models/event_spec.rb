@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   before(:each) do
-    FactoryGirl.create(:event, :past)
-    FactoryGirl.create(:event, :today)
-    FactoryGirl.create(:event, :future)
-    FactoryGirl.create(:event, :today)
-    FactoryGirl.create(:event, :past)
-    FactoryGirl.create(:event, :last_week)
-    FactoryGirl.create(:event, :past)
-    FactoryGirl.create(:event, :yesterday)
-    FactoryGirl.create(:event, :yesterday)
+    FactoryBot.create(:event, :past)
+    FactoryBot.create(:event, :today)
+    FactoryBot.create(:event, :future)
+    FactoryBot.create(:event, :today)
+    FactoryBot.create(:event, :past)
+    FactoryBot.create(:event, :last_week)
+    FactoryBot.create(:event, :past)
+    FactoryBot.create(:event, :yesterday)
+    FactoryBot.create(:event, :yesterday)
   end
 
   describe "self.upcoming" do

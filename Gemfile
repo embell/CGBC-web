@@ -15,7 +15,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
   gem 'better_errors'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'minitest'
   gem 'thor'
 end

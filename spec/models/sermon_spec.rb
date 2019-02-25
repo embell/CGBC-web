@@ -4,10 +4,10 @@ RSpec.describe Sermon, type: :model do
   
   describe "self.search" do
     before(:each) do
-      FactoryGirl.create(:sermon, :speaker_marty)
-      FactoryGirl.create(:sermon, :title_test_sermon)
-      FactoryGirl.create(:sermon, :oct312018)
-      FactoryGirl.create(:sermon, :aug202017)
+      FactoryBot.create(:sermon, :speaker_marty)
+      FactoryBot.create(:sermon, :title_test_sermon)
+      FactoryBot.create(:sermon, :oct312018)
+      FactoryBot.create(:sermon, :aug202017)
     end
 
     it "finds correct results by title" do
