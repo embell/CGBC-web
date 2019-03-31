@@ -1,15 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.10'
+gem 'rails', '~> 4.2.11'
 
 # Fix the conflict with the system 'rake':
 gem 'rake', '~> 0.9.6'
-gem 'rack', '~> 1.6.10'
 
 # Support for databases and environment.
 # Use 'sqlite3' for testing and development and mysql and postgresql
 # for production.
-#
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
@@ -35,8 +34,6 @@ group :production, :postgresql do
   gem 'unicorn'
 end
 
-### / OpenShift changes
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
@@ -46,9 +43,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'coffee-script-source', '1.8.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -62,7 +56,7 @@ group :doc do
 end
 
 gem 'haml'
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.6.0'
 gem 'carrierwave'
 gem 'pericope'
 gem 'will_paginate'
