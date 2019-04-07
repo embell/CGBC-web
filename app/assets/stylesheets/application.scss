@@ -17,7 +17,7 @@
 @import "https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css";
 
 $main_dark: #111111;
-$main_light: #EEEEEE;
+$main_light: #EEECEB;
 
 @import 'home';
 @import 'events';
@@ -41,8 +41,12 @@ body {
   background: inherit;
 }
 
-#logo {
-  height: 30px;
+.navbar {
+	padding-bottom: 7px;
+}
+
+.navbar-brand {
+	padding-top: 0;
 }
 
 .section {
