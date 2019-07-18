@@ -11,6 +11,10 @@ RSpec.describe Event, type: :model do
     FactoryBot.create(:event, :past)
     FactoryBot.create(:event, :yesterday)
     FactoryBot.create(:event, :yesterday)
+    FactoryBot.create(:event, :next_year)
+    FactoryBot.create(:event, :last_year)
+    FactoryBot.create(:event, :ends_next_month)
+    FactoryBot.create(:event, :ends_this_month)
   end
 
   describe "self.upcoming" do
@@ -41,6 +45,31 @@ RSpec.describe Event, type: :model do
       end
     end
 
+  end
+
+  describe "self.month_events" do
+    it "finds only events for the given month" do
+      results = Event.month_events(Date.today.year, Date.today.month)
+
+      results.each do |e|
+        start_in_month = false
+        end_in_month = false
+
+        start_in_month = (e.start_date.month == Date.today.month &&
+                          e.start_date.year == Date.today.year) 
+        end_in_month = !e.end_date.nil? && 
+                       (e.end_date.month == Date.today.month &&
+                        e.end_date.year == Date.today.year)
+
+        if e.end_date.nil? 
+          date_range_string = "#{e.start_date}"
+        else
+          date_range_string = "range #{e.start_date} - #{e.end_date}"
+        end
+
+        expect(start_in_month || end_in_month).to be == true, "Date #{date_range_string} not in month #{Date.today.month} of #{Date.today.year}"
+      end
+    end
   end
 
   describe "formatted_start_date" do
