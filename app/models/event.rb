@@ -5,6 +5,14 @@ class Event < ActiveRecord::Base
     upcoming_events.order(start_date: :asc)
   end
 
+  # Find all events for a particular month on the calendar.
+  def self.month_events(year, month)
+    return Event.where("(start_date >= '#{Date.new(year, month, 1)}' " +
+                       "AND start_date <= '#{Date.new(year, month, -1)}') " + 
+                       "OR (end_date >= '#{Date.new(year, month, 1)}' " +
+                       "AND end_date <= '#{Date.new(year, month, -1)}') ")  
+  end
+
   def formatted_start_date
     start_date.strftime("%b %e")
   end
