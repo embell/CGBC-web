@@ -3,9 +3,40 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :validate_permission, only: [:create, :edit, :update, :destroy]
 
-  def index
+  def index 
+    if ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].include?(params['month'])
+      @month = params['month']
+    else
+      @month = Date.today().month
+    end
+
+    if /20[0-9]{2}$/.match?(params['year'])
+      @year = params['year']
+    else
+      @year = Date.today().year
+    end
+
+    @month = Integer(@month)
+    @year = Integer(@year)
+
+    if @month == 12
+      @next_month = 1
+      @next_year = @year+1
+    else
+      @next_month = @month+1
+      @next_year = @year
+    end
+
+    if @month == 1
+      @prev_month = 12
+      @prev_year = @year-1
+    else
+      @prev_month = @month-1
+      @prev_year = @year
+    end
+
     @title = 'Events'
-    @all_events = Event.all
+    @month_events = Event.month_events(@year, @month)
   end
 
   def create

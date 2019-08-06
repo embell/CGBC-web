@@ -1,0 +1,34 @@
+.section
+  %h1 Calendar
+
+  #calendar-navigation
+    = link_to events_path + "/#{@prev_year}/#{@prev_month}/", title: "Previous month" do
+      %span.glyphicon.glyphicon-chevron-left.interactive-icon
+    %div= "#{Date::MONTHNAMES[@month]}, #{@year}"
+    = link_to events_path + "/#{@next_year}/#{@next_month}/", title: "Next month" do
+      %span.glyphicon.glyphicon-chevron-right.interactive-icon
+
+  #calendar-table
+    - ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].each do |day|
+      %div.calendar-cell.calendar-header
+        = day
+
+    - first_day = Date.new(@year, @month, 1).wday
+    - last_day = Date.new(@year, @month, -1).day
+    
+    -# Check to see how many rows are needed - add offset to total days.
+    - (last_day + first_day > 35 ? 42 : 35).times do |i|
+      - display_date = i - first_day + 1
+      %div.calendar-cell.calendar-body
+        - if i >= first_day && i-first_day<last_day
+          = display_date
+          - @month_events.each do |e|
+            - calendar_date = Date.new(@year, @month, display_date)
+            - if e.end_date.nil?
+              - if e.start_date == calendar_date
+                .button-cell.interactive-element= e.name
+            - else
+              - if calendar_date >= e.start_date && calendar_date <= e.end_date
+                .button-cell.interactive-element= e.name
+        - else
+          .off-calendar-cell

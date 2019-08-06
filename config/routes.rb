@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :create, :destroy, :update]
 
   get 'events/edit', to: 'events#edit'
+  get 'events/:year/:month', to: 'events#index'
   resources :events, only: [:index, :create, :destroy, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
