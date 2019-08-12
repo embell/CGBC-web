@@ -10,7 +10,7 @@ class EventsController < ApplicationController
       @month = Date.today().month
     end
 
-    if /20[0-9]{2}$/.match?(params['year'])
+    if /20[0-9]{2}$/ =~ params['year']
       @year = params['year']
     else
       @year = Date.today().year
