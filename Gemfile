@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
+ruby '2.4.6'
+
 gem 'rails', '~> 4.2.11'
-gem 'nokogiri', '~>1.9.0'
+gem 'nokogiri', '~>1.10.0'
 
 # Fix the conflict with the system 'rake':
 gem 'rake', '~> 0.9.6'
@@ -11,7 +13,7 @@ gem 'rake', '~> 0.9.6'
 # for production.
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.11'
   gem 'rspec-rails'
   gem 'byebug'
   gem 'better_errors'
