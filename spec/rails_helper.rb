@@ -30,8 +30,8 @@ ActiveRecord::Migrator.migrate(File.join(Rails.root, 'db/migrate'))
 ActiveRecord::Migration.check_pending!
 
 RSpec.configure do |config|
-  config.include Devise::TestHelpers, type: :controller
-  config.include Devise::TestHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 
   config.extend ControllerMacros, type: :controller
 
