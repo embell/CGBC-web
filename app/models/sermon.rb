@@ -87,12 +87,12 @@ class Sermon < ActiveRecord::Base
   # Go from a string to a Pericope. Using this method, can interpret book names alone as Pericopes.
   def self.get_pericope(verse_string)
     pericope = Pericope.new(verse_string)  
-  rescue RuntimeError
+  rescue ArgumentError
     begin
       pericope = Pericope.new(verse_string + " 1")
       book_count = pericope.book_chapter_count
       pericope = Pericope.new(verse_string + " 1-#{book_count}")
-    rescue RuntimeError
+    rescue
       nil 
     end
   end

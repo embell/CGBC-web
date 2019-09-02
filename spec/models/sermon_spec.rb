@@ -4,10 +4,10 @@ RSpec.describe Sermon, type: :model do
   
   describe "self.search" do
     before(:each) do
-      FactoryBot.create(:sermon, :speaker_marty)
+      FactoryBot.create(:sermon, :speaker_marty, :verse_exodus)
       FactoryBot.create(:sermon, :title_test_sermon)
-      FactoryBot.create(:sermon, :oct312018)
-      FactoryBot.create(:sermon, :aug202017)
+      FactoryBot.create(:sermon, :oct312018, :verse_matthew_28)
+      FactoryBot.create(:sermon, :aug202017, :verse_matthew_eph)
     end
 
     it "finds correct results by title" do
@@ -41,8 +41,23 @@ RSpec.describe Sermon, type: :model do
         expect(r.date.month).to eq(8)
       end
     end
+
+    it "finds correct results by verse with only book" do
+      results = Sermon.search({verses: "Matthew"})
+      expect(results.count).to eq(2)
+      results.each do |r|
+        expect(Pericope.new(r.verses).to_s).to include("Matthew")
+      end
+    end
+
+    it "finds correct results by verse with book and chapter" do
+      results = Sermon.search({verses: "Matthew 28"})
+      expect(results.count).to eq(1)
+      results.each do |r|
+        expect(Pericope.new(r.verses).to_s).to include("Matthew")
+      end
+    end
   end
 
   pending "Sermons search should find all sermons when combining criteria" 
-  pending "Sermons search should find all sermons by verse" 
 end

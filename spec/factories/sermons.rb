@@ -3,6 +3,7 @@ FactoryBot.define do
     title "Default"
     speaker "Default"
     date "2016-09-27"
+    verses nil
 
     audio_file { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec", "fixtures", "test.txt")) }
 
@@ -12,6 +13,18 @@ FactoryBot.define do
 
     trait :title_test_sermon do
       title "Test Sermon"
+    end
+
+    trait :verse_exodus do
+      verses "Exodus 2:3-5"
+    end
+
+    trait :verse_matthew_28 do
+      verses "Matthew 28:19"
+    end
+
+    trait :verse_matthew_eph do
+      verses "Matthew 5:2-18, Eph 2"
     end
 
     trait :oct312018 do
