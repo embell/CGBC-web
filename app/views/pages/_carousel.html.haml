@@ -1,0 +1,12 @@
+.carousel.slide#myCarousel{:data => {:ride => 'carousel'}}
+  %ol.carousel-indicators
+    %li.active{:data => {:target => '#myCarousel', :slide_to => '0'}}
+    %li{:data => {:target => '#myCarousel', :slide_to => '1'}}
+    %li{:data => {:target => '#myCarousel', :slide_to => '2'}}
+  .carousel-inner
+    .item.active
+      = image_tag "bible.jpg", class: "image-responsive center-block", alt: "Bible"
+    .item
+      = image_tag "church3.jpg", class: "image-responsive center-block", alt: "Our church"
+    .item
+      = image_tag "crosses.jpg", class: "image-responsive center-block", alt: "Three crosses"
