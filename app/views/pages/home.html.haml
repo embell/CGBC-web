@@ -23,29 +23,15 @@
         for all the details.
 
 .row#homepage-multi-column
-  .col-md-4.col-xs-6
+  .col-xs-6
     = render "service_times"
+    = render 'events/summary'
 
-    .hidden-md.hidden-lg
-      = render 'events/summary'
-
-  .col-md-4.col-xs-6
-    .hidden-md.hidden-lg
-      - if @last_sermon
-        = render 'sermons/most_recent'
- 
-    .hidden-sm.hidden-xs
-      = render 'events/summary'
-  
-    = render 'children'
-
-  .col-md-4.hidden-sm.hidden-xs
+  .col-xs-6
     - if @last_sermon
       = render 'sermons/most_recent'
-    
-    .hidden-md.hidden-lg
-      = render 'children'
-      
+    = render 'children'
+
 #homepage-one-column 
   = render "service_times"
 
