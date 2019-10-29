@@ -59,7 +59,7 @@ group :doc do
 end
 
 gem 'haml'
-gem 'devise', '~> 4.6.0'
+gem 'devise', '~> 4.7.1'
 gem 'carrierwave'
 gem 'pericope'
 gem 'will_paginate'
