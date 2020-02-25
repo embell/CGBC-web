@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.6'
 
 gem 'rails', '~> 4.2.11'
-gem 'nokogiri', '~>1.10.0'
+gem 'nokogiri', '~>1.10.8'
 
 # Fix the conflict with the system 'rake':
 gem 'rake', '~> 0.9.6'
