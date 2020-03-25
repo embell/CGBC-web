@@ -15,6 +15,7 @@ RSpec.describe Event, type: :model do
     FactoryBot.create(:event, :last_year)
     FactoryBot.create(:event, :ends_next_month)
     FactoryBot.create(:event, :ends_this_month)
+    FactoryBot.create(:event, :ongoing)
   end
 
   describe "self.upcoming" do
@@ -22,11 +23,15 @@ RSpec.describe Event, type: :model do
       results = Event.upcoming()
 
       results.each do |r|
-        expect(r.start_date).to be > Date.today.advance(days: -1)
+        if r.end_date.nil? || r.end_date < Date.today
+          expect(r.start_date).to be > Date.today.advance(days: -1)
+        else
+          expect(r.end_date).to be >= Date.today
+        end
       end
     end
 
-    it "does not find events that occur before today" do
+    it "does not find events that occur before today unless they're ongoing" do
       all_events = Event.all
       results = Event.upcoming()
 
@@ -45,6 +50,18 @@ RSpec.describe Event, type: :model do
       end
     end
 
+    # Events that start before today but end later should still be included.
+    it "finds events that are still in progress" do
+      results = Event.upcoming()
+      
+      ongoing_count = 0
+      results.each do |e|
+        if !e.end_date.nil? && e.start_date <= Date.today && e.end_date >= Date.today
+          ongoing_count += 1
+        end
+      end
+      expect(ongoing_count).to eq(1)
+    end
   end
 
   describe "self.month_events" do

@@ -31,6 +31,11 @@ FactoryBot.define do
     start_time {Date.yesterday}
   end
 
+  trait :ongoing do
+    start_date {4.days.ago}
+    end_date {3.days.from_now}
+  end
+
   # Events in the current month, next and last year
   trait :next_year do
     start_date {Date.new(Date.today.year+1, Date.today.month)} 
