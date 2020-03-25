@@ -6,7 +6,7 @@ gem 'rails', '~> 4.2.11'
 gem 'nokogiri', '~>1.10.8'
 
 # Fix the conflict with the system 'rake':
-gem 'rake', '~> 0.9.6'
+gem 'rake', '~> 12.3.3'
 
 # Support for databases and environment.
 # Use 'sqlite3' for testing and development and mysql and postgresql
