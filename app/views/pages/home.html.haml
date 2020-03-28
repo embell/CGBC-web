@@ -22,6 +22,20 @@
         = link_to 'beliefs page', beliefs_path
         for all the details.
 
+      %hr
+
+      %p
+        We're now accepting tithes and offerings electronically. Click here to contribute: 
+
+      %form.center{:action => 'https://www.paypal.com/cgi-bin/webscr', :method => 'post', :target => '_top'}
+
+        %input.center{:type => 'hidden', :name => 'cmd', :value => '_s-xclick'}
+        %input.center{:type => 'hidden', :name => 'hosted_button_id', :value => 'ERTCMWZLYR6V8'}
+        %input.center-block{:type => 'image', :src => 'https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif',
+               :border => '0', :name => 'submit', :title => 'PayPal - The safer, easier way to pay online!', 
+               :alt => 'Donate with PayPal button'}
+        %img.center{:alt => '', :border => '0', :src => 'https://www.paypal.com/en_US/i/scr/pixel.gif', :width => '1', :height => '1'}
+
 .row#homepage-multi-column
   .col-xs-6
     = render "service_times"
