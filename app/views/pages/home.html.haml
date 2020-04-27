@@ -3,8 +3,9 @@
     .section#carousel-section
       .center
         .embed-responsive.embed-responsive-16by9
-          %iframe.embed-responsive-item{:src => 'https://www.youtube.com/embed/a00lHyuH_sI',
+          %iframe.embed-responsive-item{:src => "https://www.youtube.com/embed/#{read_video_id}",
                                         :allowfullscreen => ''}
+          -#%iframe.embed-responsive-item{:src => 'https://www.youtube.com/embed/a00lHyuH_sI',
         -#= render 'carousel'
       %p- More videos on our #{link_to 'YouTube channel', 'https://www.youtube.com/channel/UC7NbuW_F5QLqtLBMwuub1rA'}.
 

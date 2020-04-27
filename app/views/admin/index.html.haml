@@ -23,6 +23,18 @@
           = render 'sermons/new'
         .col-md-4
           = render 'sermons/select_for_edit'
+      %hr
+      .row
+        .col-md-8
+          %h3 YouTube
+          = form_tag '/video' do
+            .form-group
+              = label_tag 'id', 'Video ID', class: 'control-label'
+              = text_field_tag 'id', nil, class: 'form-control'
+            = submit_tag 'Change', class: 'btn btn-primary'
+        .col-md-4
+          %h3
+          %p- Current Video ID: #{read_video_id}
 
   #newsletters-panel.admin-panel.hidden
     - if @show_newsletter_fields 

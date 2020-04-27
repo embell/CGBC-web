@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'home', to: 'pages#home'
   get 'index', to: 'pages#home'
+  post 'video', to: 'pages#change_video'
   get '/.well-known/acme-challenge/:id', to: 'pages#letsencrypt'
 
   get 'beliefs', to: 'pages#beliefs'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   get 'events/edit', to: 'events#edit'
   get 'events/:year/:month', to: 'events#index'
   resources :events, only: [:index, :create, :destroy, :update]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
