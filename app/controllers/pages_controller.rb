@@ -7,9 +7,8 @@ class PagesController < ApplicationController
     @last_newsletter = Newsletter.last
     @upcoming_events = Event.upcoming
 
-    flash[:warning] = "To protect the health of our members and the public during the pandemic, " + 
-                      "we are cancelling normal services. However, you can continue to worship "  +
-                      "with us: on Sunday morning at 11AM each week, we will stream service on Facebook Live."
+    flash[:warning] = "We are now open for Sunday morning worship service. We ask that attendees please continue to maintain social " + 
+                      "distancing. We'll also still be livestreaming services on Facebook and uploading them to Youtube, so feel free to join us online if preferred."
   end
 
   def beliefs
