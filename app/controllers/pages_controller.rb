@@ -6,9 +6,6 @@ class PagesController < ApplicationController
     @last_sermon = Sermon.last
     @last_newsletter = Newsletter.last
     @upcoming_events = Event.upcoming
-
-    flash[:warning] = "Due to nearby cases, we will be closed for Sunday morning worship services. " + 
-                      "Please join us for services online via our Facebook page!"
   end
 
   def beliefs
